@@ -1,0 +1,74 @@
+{
+    "name": "RhythmInput",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "f9893f96-03c8-4f3d-8eb5-e90609426e57",
+            "actions": [
+                {
+                    "name": "JKey",
+                    "type": "Button",
+                    "id": "7826d2d2-9574-4bb4-8f79-5c7cb30a353f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "KKey",
+                    "type": "Button",
+                    "id": "9f2b064d-37cc-4e12-8b82-a9d2edc2ddc4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LKey",
+                    "type": "Button",
+                    "id": "def1ac94-b145-468a-9a6a-5ddc69b82c56",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "0604de0a-4352-4df6-82de-8539ed9738b8",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "JKey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "edde006a-0664-4c0f-81be-9d65e62ee064",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "KKey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4f9464d6-b782-4703-ad01-9a7308133479",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LKey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
