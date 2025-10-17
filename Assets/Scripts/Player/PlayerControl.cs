@@ -5,10 +5,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Scripting.APIUpdating;
 
-public class PlayerController : MonoBehaviour
+public class PlayerControl : MonoBehaviour
 {
     public PlayerInputControl inputControl;
     private Rigidbody2D rb;
+    private PhysicsCheck physicsCheck;
     public Vector2 inputDirection;
 
     [Header("基本参数")]
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
     {
         inputControl = new PlayerInputControl();
         rb = GetComponent<Rigidbody2D>();
+        physicsCheck = GetComponent<PhysicsCheck>();
 
         inputControl.Gameplay.Jump.started += Jump;
     }
@@ -63,6 +65,9 @@ public class PlayerController : MonoBehaviour
 
     private void Jump(InputAction.CallbackContext context)
     {
-        rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+        if(physicsCheck.isGround)
+        {
+            rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse); 
+        }
     }
 }

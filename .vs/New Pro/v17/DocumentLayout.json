@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\Unity Project\\New Pro\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|d:\\unity project\\new pro\\assets\\scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|d:\\unity project\\new pro\\assets\\scripts\\player\\playeranimation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playeranimation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|d:\\unity project\\new pro\\assets\\scripts\\player\\playercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|D:\\Unity Project\\New Pro\\assets\\scripts\\general\\physicscheck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\general\\physicscheck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|D:\\Unity Project\\New Pro\\assets\\scripts\\sheet\\sheetjudge.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\sheet\\sheetjudge.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,41 +30,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PhysicsCheck.cs",
-              "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\General\\PhysicsCheck.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\General\\PhysicsCheck.cs",
-              "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\General\\PhysicsCheck.cs",
-              "RelativeToolTip": "Assets\\Scripts\\General\\PhysicsCheck.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAIAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "PlayerAnimation.cs",
+              "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Player\\PlayerAnimation.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerAnimation.cs",
+              "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Player\\PlayerAnimation.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerAnimation.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAABcAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-16T14:23:29.501Z",
+              "WhenOpened": "2025-10-17T13:24:50.452Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PlayerController.cs",
-              "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Player\\PlayerController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerController.cs",
-              "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Player\\PlayerController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerController.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAswDsAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "PlayerControl.cs",
+              "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Player\\PlayerControl.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerControl.cs",
+              "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Player\\PlayerControl.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerControl.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAswAcAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-16T13:05:52.214Z",
+              "WhenOpened": "2025-10-17T13:01:22.902Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "SheetJudge.cs",
-              "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Sheet\\SheetJudge.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Sheet\\SheetJudge.cs",
-              "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Sheet\\SheetJudge.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Sheet\\SheetJudge.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAAJsAAAAJAAAAAAAAAA==",
+              "Title": "PhysicsCheck.cs",
+              "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\General\\PhysicsCheck.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\General\\PhysicsCheck.cs",
+              "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\General\\PhysicsCheck.cs",
+              "RelativeToolTip": "Assets\\Scripts\\General\\PhysicsCheck.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwB4AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-16T09:22:43.377Z"
+              "WhenOpened": "2025-10-16T14:23:29.501Z"
             }
           ]
         }
