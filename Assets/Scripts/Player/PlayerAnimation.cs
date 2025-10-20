@@ -23,4 +23,14 @@ public class PlayerAnimation : MonoBehaviour
     {
         anim.SetFloat("velocityX", Mathf.Abs(rb.velocity.x));
     }
+
+    public void PlayHurt()
+    {
+        anim.SetTrigger("hurt");
+    }
+
+    public void PlayAttack()
+    {
+        anim.SetTrigger("attack");
+    }
 }

@@ -44,6 +44,33 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""JKey"",
+                    ""type"": ""Button"",
+                    ""id"": ""dfcf9b19-9e2b-45a0-8d98-fcd5e871bf99"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""KKey"",
+                    ""type"": ""Button"",
+                    ""id"": ""78f0a651-6f42-417d-b9d2-e58187553967"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LKey"",
+                    ""type"": ""Button"",
+                    ""id"": ""6e0d5295-6560-4962-b118-ac2515e915cc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -198,6 +225,39 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5bcc8766-8c38-4aff-b5c3-6639aa428e00"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""JKey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cf27918c-01ec-4af9-a335-cb6200ff6f18"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""KKey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""72c4a572-b65b-45c6-8ff1-39b37eb7e4df"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""LKey"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -787,6 +847,9 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
         m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
+        m_Gameplay_JKey = m_Gameplay.FindAction("JKey", throwIfNotFound: true);
+        m_Gameplay_KKey = m_Gameplay.FindAction("KKey", throwIfNotFound: true);
+        m_Gameplay_LKey = m_Gameplay.FindAction("LKey", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -862,12 +925,18 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
     private readonly InputAction m_Gameplay_Move;
     private readonly InputAction m_Gameplay_Jump;
+    private readonly InputAction m_Gameplay_JKey;
+    private readonly InputAction m_Gameplay_KKey;
+    private readonly InputAction m_Gameplay_LKey;
     public struct GameplayActions
     {
         private @PlayerInputControl m_Wrapper;
         public GameplayActions(@PlayerInputControl wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Gameplay_Move;
         public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
+        public InputAction @JKey => m_Wrapper.m_Gameplay_JKey;
+        public InputAction @KKey => m_Wrapper.m_Gameplay_KKey;
+        public InputAction @LKey => m_Wrapper.m_Gameplay_LKey;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -883,6 +952,15 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @JKey.started += instance.OnJKey;
+            @JKey.performed += instance.OnJKey;
+            @JKey.canceled += instance.OnJKey;
+            @KKey.started += instance.OnKKey;
+            @KKey.performed += instance.OnKKey;
+            @KKey.canceled += instance.OnKKey;
+            @LKey.started += instance.OnLKey;
+            @LKey.performed += instance.OnLKey;
+            @LKey.canceled += instance.OnLKey;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -893,6 +971,15 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @JKey.started -= instance.OnJKey;
+            @JKey.performed -= instance.OnJKey;
+            @JKey.canceled -= instance.OnJKey;
+            @KKey.started -= instance.OnKKey;
+            @KKey.performed -= instance.OnKKey;
+            @KKey.canceled -= instance.OnKKey;
+            @LKey.started -= instance.OnLKey;
+            @LKey.performed -= instance.OnLKey;
+            @LKey.canceled -= instance.OnLKey;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -1077,6 +1164,9 @@ public partial class @PlayerInputControl: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnJKey(InputAction.CallbackContext context);
+        void OnKKey(InputAction.CallbackContext context);
+        void OnLKey(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

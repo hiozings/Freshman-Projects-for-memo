@@ -7,13 +7,14 @@ using System.Diagnostics;
 
 public class SheetJudge : MonoBehaviour
 {
+    public bool isInputEnabled =true;
 
     // 扫描线相关
     [Header("扫描线设置")]
     public Image scanLine; // 拖拽UIImage作为扫描线
-    public float scanSpeed = 500f; // 扫描线移动速度（像素/秒）
-    public float leftStartX = -200f; // 扫描线起始X（谱面左侧外）
-    public float rightEndX = 1200f; // 扫描线结束X（谱面右侧外）
+    public float scanSpeed; // 扫描线移动速度（像素/秒）
+    public float leftStartX; // 扫描线起始X（谱面左侧外）
+    public float rightEndX; // 扫描线结束X（谱面右侧外）
     private float currentScanX; // 扫描线当前X坐标
 
     // 判定线相关
@@ -25,7 +26,8 @@ public class SheetJudge : MonoBehaviour
     // 按键与标记相关
     [Header("按键与标记设置")]
     //public KeyCode[] rhythmKeys = { KeyCode.J, KeyCode.K, KeyCode.L }; // 节奏指令键
-    private RhythmInput input;
+    //private RhythmInput input;
+    private PlayerInputControl input;
     private InputAction jKeyAction;
     private InputAction kKeyAction;
     private InputAction lKeyAction;
@@ -33,17 +35,18 @@ public class SheetJudge : MonoBehaviour
     public GameObject[] evalPrefabs; // 评价标识预制体（Good/Great/Perfect等）
     private List<GameObject> spawnedMarks = new List<GameObject>(); // 已生成的标记列表
     private List<GameObject> spawnedEvals = new List<GameObject>(); // 已生成的评价列表
+    private string collectedCommand = "";
 
     // 判定参数（时间判定，参考音游标准）
     [Header("判定标准（毫秒）")]
-    public int perfectTime = 50; // Perfect判定窗口
-    public int greatTime = 100; // Great判定窗口
-    public int goodTime = 150; // Good判定窗口
+    public int perfectTime; // Perfect判定窗口
+    public int greatTime; // Great判定窗口
+    public int goodTime; // Good判定窗口
     private float scanLinePassTime; // 扫描线经过判定线的时间戳
 
     private void Awake()
     {
-        input = new RhythmInput();
+        input = new PlayerInputControl();
         var gameplay = input.Gameplay;
         jKeyAction = gameplay.JKey;
         kKeyAction = gameplay.KKey;
@@ -85,6 +88,11 @@ public class SheetJudge : MonoBehaviour
         {
             ResetSheet();
         }
+    }
+
+    public void EnableInput(bool isEnable)
+    {
+        this.isInputEnabled = isEnable; // 新增bool变量控制输入开关
     }
 
     // 扫描线移动
@@ -145,17 +153,28 @@ public class SheetJudge : MonoBehaviour
         if (jKeyAction.WasPressedThisFrame())
         {
             SpawnMarkAndEval(0);
+            collectedCommand += 'J';
         }
         else if (kKeyAction.WasPressedThisFrame())
         {
             SpawnMarkAndEval(1);
+            collectedCommand += 'K';
         }
         else if (lKeyAction.WasPressedThisFrame())
         {
             SpawnMarkAndEval(2);
+            collectedCommand += 'L';
         }
 
     }
+
+    public string GetPlayerCommand()
+    {
+        string command = collectedCommand;
+        collectedCommand = ""; // 重置指令，准备下一回合
+        return command;
+    }
+
 
     // 生成按键标记与评价标识
     private void SpawnMarkAndEval(int keyIndex)
