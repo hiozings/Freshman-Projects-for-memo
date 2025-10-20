@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
-
+using DG.Tweening;
 public class Stage2VineBattle : MonoBehaviour
 {
     public VoidEventSO voidEvent;
@@ -74,6 +74,7 @@ public class Stage2VineBattle : MonoBehaviour
         // 1. 摄像机锁定后，延迟生成藤蔓（给玩家缓冲时间，匹配策划“主角入场被阻拦”）
         battleTMP.gameObject.SetActive(true);
         battleTMP.text = "前方发现异常...";
+        rb.bodyType = RigidbodyType2D.Static;
         yield return new WaitForSeconds(vineSpawnDelay);
 
         // 2. 生成黑色藤蔓敌人（固定阻拦单位，有接触伤害）
@@ -81,7 +82,7 @@ public class Stage2VineBattle : MonoBehaviour
         battleTMP.text = "黑色藤蔓挡住了去路！";
         yield return new WaitForSeconds(1.5f);
 
-        rb.bodyType = RigidbodyType2D.Static;
+        
 
         // 3. NPC第二次入场（教学战斗指令，策划“NPC再次入场教攻击/回蓝/防御”）
         spawnedNPC = Instantiate(npcPrefab, npcSpawnPos.position, Quaternion.identity);
@@ -118,11 +119,33 @@ public class Stage2VineBattle : MonoBehaviour
         //Destroy(spawnedBattleMark);
         battleTMP.gameObject.SetActive(true);
         battleTMP.text = "战斗开始！按节奏操作～";
-        vCam.Follow = PlayerTrans;
-        vCam.LookAt = PlayerTrans;
+        StartCoroutine(SmoothMoveCameraToLockPos());
+        
         rb.bodyType = RigidbodyType2D.Dynamic;
         EnableVineBattleAI(); // 启用藤蔓攻击逻辑
         Debug.Log("第二段战斗开启，符合策划“承·转”阶段需求");
+    }
+
+    private IEnumerator SmoothMoveCameraToLockPos()
+    {
+        // 解除跟随
+        vCam.Follow = null;
+        vCam.LookAt = null;
+
+        // 使用 DoTween 平滑移动
+        float moveDuration = 1.5f;
+        vCam.transform.DOMove(PlayerTrans.position, moveDuration)
+            .SetEase(Ease.InOutCubic);
+
+        // 等待移动完成
+        yield return new WaitForSeconds(moveDuration);
+
+        // 等待一帧
+        yield return null;
+
+        // 重新设置跟随
+        vCam.Follow = PlayerTrans;
+        vCam.LookAt = PlayerTrans;
     }
 
     private void EnableVineBattleAI()

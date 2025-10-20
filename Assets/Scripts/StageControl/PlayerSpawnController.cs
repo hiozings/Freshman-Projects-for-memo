@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-
+using DG.Tweening;
 public class PlayerSpawnController : MonoBehaviour
 {
     [Header("核心组件引用")]
@@ -154,7 +154,11 @@ public class PlayerSpawnController : MonoBehaviour
         // 逐句播放NPC对话
         for (int i = 0; i < npcDialogues.Length; i++)
         {
+            //tutorialTMP.text = "";
+
             tutorialTMP.text = $"NPC：{npcDialogues[i]}";
+            //tutorialTMP.DOText($"NPC：{npcDialogues[i]}", 1.5f) // 1.5秒完成打字
+            //.SetEase(Ease.Linear);
             yield return new WaitForSeconds(dialogueInterval);
         }
 
@@ -190,25 +194,34 @@ public class PlayerSpawnController : MonoBehaviour
 
     private IEnumerator SmoothMoveCameraToLockPos()
     {
-        Vector3 startCamPos = vCam.transform.position;
-        Vector3 targetCamPos = vCamLockPos;
-        float elapsedTime = 0f;
+        //Vector3 startCamPos = vCam.transform.position;
+        //Vector3 targetCamPos = vCamLockPos;
+        //float elapsedTime = 0f;
 
-        while (elapsedTime < camMoveDuration)
-        {
-            // 计算移动进度（0→1，Lerp插值用）
-            float t = elapsedTime / camMoveDuration;
-            // 平滑因子（可选：添加缓动效果，让移动先慢后快再慢，更自然）
-            t = Mathf.SmoothStep(0f, 1f, t);
+        //while (elapsedTime < camMoveDuration)
+        //{
+        //    // 计算移动进度（0→1，Lerp插值用）
+        //    float t = elapsedTime / camMoveDuration;
+        //    // 平滑因子（可选：添加缓动效果，让移动先慢后快再慢，更自然）
+        //    t = Mathf.SmoothStep(0f, 1f, t);
 
-            // 逐帧更新镜头位置
-            vCam.transform.position = Vector3.Lerp(startCamPos, targetCamPos, t);
-            elapsedTime += Time.deltaTime;
+        //    // 逐帧更新镜头位置
+        //    vCam.transform.position = Vector3.Lerp(startCamPos, targetCamPos, t);
+        //    elapsedTime += Time.deltaTime;
 
-            yield return null; // 等待下一帧，确保平滑
-        }
+        //    yield return null; // 等待下一帧，确保平滑
+        //}
 
-        vCam.transform.position = targetCamPos;
+        //vCam.transform.position = targetCamPos;
+        vCam.transform.DOMove(vCamLockPos, camMoveDuration)
+            .SetEase(Ease.InOutCubic);
+
+        // 等待移动完成
+        yield return new WaitForSeconds(camMoveDuration);
+
+        // 等待一帧
+        yield return null;
+
         isCamMoving = false;
     }
 
