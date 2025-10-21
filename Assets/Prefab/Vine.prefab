@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b1e3b4826f94384b8b091125e97c7c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 2
   attackRange: 0
   attackRate: 0
   disenableAfterAttack: 0
@@ -243,6 +243,18 @@ MonoBehaviour:
   OnDie:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 11400000, guid: 29456d7c762a81f498296ac7492b6dcd, type: 2}
+        m_TargetAssemblyTypeName: VoidEventSO, Assembly-CSharp
+        m_MethodName: RaiseEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1000386053726688620}
         m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
         m_MethodName: EnemyDead
@@ -293,7 +305,8 @@ MonoBehaviour:
   attackRange: 7.7
   attackInterval: 2
   checkPlayerInterval: 0.2
-  thornPrefab: {fileID: 0}
+  canAttack: 0
+  thornPrefab: {fileID: 1062166456943030093, guid: b3bf8986aa089c148a9178c25120ff88, type: 3}
   thornLifetime: 3
   thornOffset: {x: 0, y: 0, z: 0}
   playerTransform: {fileID: 0}

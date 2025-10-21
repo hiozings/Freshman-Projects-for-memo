@@ -11,6 +11,10 @@ public class Character : MonoBehaviour
 
     public int maxHealth;
     public int currentHealth;
+    public int maxShield;
+    public int currentShield;
+    public int maxPower;
+    public int currentPower;
     public float invulnerableDuration;
     public float invulnerableConunter;
     public bool invulnerable;
@@ -24,6 +28,8 @@ public class Character : MonoBehaviour
     private void Awake()
     {
         currentHealth = maxHealth;
+        currentShield = maxShield;
+        currentPower = maxPower;
     }
 
     private void Update()
@@ -43,20 +49,34 @@ public class Character : MonoBehaviour
         if (invulnerable)
             return;
         //Debug.Log(attacker.damage);
-        if (currentHealth - attacker.damage > 0)
+        int d = attacker.damage;
+        if (currentShield >= d)
         {
-            currentHealth -= attacker.damage;
+            currentShield -= d;
             TriggerInvulnerable();
             OnTakeDamage?.Invoke(attacker.transform);
-            //PlayAudioEvent.RaiseEvent(takeDamageFX);
         }
         else
         {
-            currentHealth = 0;
-            OnDie?.Invoke();
-            //PlayAudioEvent.RaiseEvent(dieFX);
+            currentShield = 0;
+            d -= currentShield;
+
+            if (currentHealth - d > 0)
+            {
+                currentHealth -= d;
+                TriggerInvulnerable();
+                OnTakeDamage?.Invoke(attacker.transform);
+                //PlayAudioEvent.RaiseEvent(takeDamageFX);
+                OnHealthChange?.Invoke(this);
+            }
+            else
+            {
+                currentHealth = 0;
+                OnHealthChange?.Invoke(this);
+                OnDie?.Invoke();
+                //PlayAudioEvent.RaiseEvent(dieFX);
+            }
         }
-        OnHealthChange?.Invoke(this);
     }
 
     private void TriggerInvulnerable()

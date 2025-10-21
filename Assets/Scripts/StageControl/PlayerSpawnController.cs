@@ -74,7 +74,7 @@ public class PlayerSpawnController : MonoBehaviour
         // 玩家完成所有操作尝试后，生成NPC对话（仅一次）
         if (!isNpcTalking && !hasNpcTalked &&hasTriedMove && hasTriedJump && spawnedNPC == null)
         {
-            Debug.Log("NPC Spawn");
+            //Debug.Log("NPC Spawn");
             StartCoroutine(StartNpcDialogue());
         }
     }
@@ -139,7 +139,6 @@ public class PlayerSpawnController : MonoBehaviour
         isNpcTalking = true;
         hasNpcTalked = true;
         tutorialTMP.text = $"NPC：{npcDialogues[0]}";  // 显示第一句对话
-
         // 生成NPC并播放入场动画
         spawnedNPC = Instantiate(npcPrefab, npcSpawnPos.position, Quaternion.identity);
         Animator npcAnim = spawnedNPC.GetComponent<Animator>();
@@ -151,6 +150,7 @@ public class PlayerSpawnController : MonoBehaviour
         // 等待入场动画完成（避免对话与动画不同步）
         yield return new WaitForSeconds(1.5f);
 
+        rb.bodyType = RigidbodyType2D.Static;
         // 逐句播放NPC对话
         for (int i = 0; i < npcDialogues.Length; i++)
         {
@@ -169,6 +169,7 @@ public class PlayerSpawnController : MonoBehaviour
         //}
         tutorialTMP.text = "NPC：继续前进吧！";
         npcAnim.SetTrigger("fade");
+        rb.bodyType = RigidbodyType2D.Dynamic;
         yield return new WaitForSeconds(1f);
         // 清理NPC与教学文本
         //Destroy(spawnedNPC, 1f);  // 等待退场动画完成后销毁

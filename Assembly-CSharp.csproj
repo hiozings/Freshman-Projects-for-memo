@@ -63,6 +63,8 @@
     <Compile Include="Assets\Scripts\General\PhysicsCheck.cs" />
     <Compile Include="Assets\Scripts\ScriptableObject\VoidEventSO.cs" />
     <Compile Include="Assets\Scripts\General\Attack.cs" />
+    <Compile Include="Assets\Scripts\StageControl\Stage3.cs" />
+    <Compile Include="Assets\Scripts\StageControl\Stage4.cs" />
     <Compile Include="Assets\Scripts\Enemy\VineEmerged.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
     <Compile Include="Assets\HurtFinish.cs" />
@@ -70,6 +72,7 @@
     <Compile Include="Assets\Scripts\General\Character.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioDefinition.cs" />
+    <Compile Include="Assets\Scripts\Env\Fountain.cs" />
     <Compile Include="Assets\Settings\InputSystem\RhythmInput.cs" />
     <Compile Include="Assets\Settings\InputSystem\PlayerInputControl.cs" />
     <Compile Include="Assets\VineDeadFinish.cs" />
@@ -442,12 +445,12 @@
       <HintPath>Library\PackageCache\com.unity.collections@1.2.4\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-      <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="DOTween">
       <HintPath>Assets\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
+      <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="mscorlib">

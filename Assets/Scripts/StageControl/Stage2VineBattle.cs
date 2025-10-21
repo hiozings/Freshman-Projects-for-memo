@@ -119,11 +119,13 @@ public class Stage2VineBattle : MonoBehaviour
         //Destroy(spawnedBattleMark);
         battleTMP.gameObject.SetActive(true);
         battleTMP.text = "战斗开始！按节奏操作～";
-        StartCoroutine(SmoothMoveCameraToLockPos());
-        
+        //StartCoroutine(SmoothMoveCameraToLockPos());
+        vCam.Follow = PlayerTrans;
+        vCam.LookAt = PlayerTrans;
+
         rb.bodyType = RigidbodyType2D.Dynamic;
         EnableVineBattleAI(); // 启用藤蔓攻击逻辑
-        Debug.Log("第二段战斗开启，符合策划“承·转”阶段需求");
+        //Debug.Log("第二段战斗开启，符合策划“承·转”阶段需求");
     }
 
     private IEnumerator SmoothMoveCameraToLockPos()
@@ -140,8 +142,8 @@ public class Stage2VineBattle : MonoBehaviour
         // 等待移动完成
         yield return new WaitForSeconds(moveDuration);
 
-        // 等待一帧
-        yield return null;
+        //// 等待一帧
+        //yield return null;
 
         // 重新设置跟随
         vCam.Follow = PlayerTrans;
@@ -164,7 +166,9 @@ public class Stage2VineBattle : MonoBehaviour
     {
         yield return new WaitForSeconds(showTime);
         battleTMP.gameObject.SetActive(false);
+        stage1Controller.enabled = false;
         // （后续扩展）触发第三段流程
         // Stage3Reward.Instance.StartStage3();
+        Destroy(this.gameObject);
     }
 }
