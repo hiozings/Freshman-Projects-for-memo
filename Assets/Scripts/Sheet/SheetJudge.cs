@@ -19,6 +19,7 @@ public class SheetJudge : MonoBehaviour
     public float leftStartX; // 扫描线起始X（谱面左侧外）
     public float rightEndX; // 扫描线结束X（谱面右侧外）
     private float currentScanX; // 扫描线当前X坐标
+    private bool isPlayerPhase = true;
 
     // 判定线相关
     [Header("判定线设置")]
@@ -54,18 +55,29 @@ public class SheetJudge : MonoBehaviour
         jKeyAction = gameplay.JKey;
         kKeyAction = gameplay.KKey;
         lKeyAction = gameplay.LKey;
+
+        float sheetWidth = Mathf.Abs(rightEndX - leftStartX);
+        float timeForThreeBeats = BeatManager.Instance.beatInterval * 3;
+        scanSpeed = sheetWidth / timeForThreeBeats;
     }
 
     void OnEnable()
     {
         // 启用输入监听
         input.Enable();
+        BeatManager.Instance.OnPlayerPhaseStart += OnPlayerPhaseStart;
+        BeatManager.Instance.OnEnemyPhaseStart += OnEnemyPhaseStart;
     }
 
     void OnDisable()
     {
         // 禁用输入监听
         input.Disable();
+        if (BeatManager.Instance != null)
+        {
+            BeatManager.Instance.OnPlayerPhaseStart -= OnPlayerPhaseStart;
+            BeatManager.Instance.OnEnemyPhaseStart -= OnEnemyPhaseStart;
+        }
     }
 
     void Start()
@@ -75,16 +87,22 @@ public class SheetJudge : MonoBehaviour
         UpdateScanLinePos();
 
         // 生成初始判定线
-        SpawnJudgeLines();
+        //SpawnJudgeLines();
     }
 
     void Update()
     {
-        // 1. 扫描线移动逻辑
-        MoveScanLine();
+        //// 1. 扫描线移动逻辑
+        //MoveScanLine();
 
-        // 2. 检测节奏按键输入
-        CheckRhythmInput();
+        //// 2. 检测节奏按键输入
+        //CheckRhythmInput();
+        if (BeatManager.Instance.currentPhase == BeatManager.GamePhase.PlayerPhase &&
+        BeatManager.Instance.currentPhaseBeat < 3)
+        {
+            MoveScanLine();
+            CheckRhythmInput();
+        }
 
         // 3. 扫描线循环（回到左侧时重置）
         if (currentScanX > rightEndX)
@@ -92,6 +110,41 @@ public class SheetJudge : MonoBehaviour
             ResetSheet();
         }
     }
+
+    private void OnPlayerPhaseStart()
+    {
+        isPlayerPhase = true;
+        ResetSheet();
+        GenerateJudgeLines();
+    }
+
+    private void OnEnemyPhaseStart()
+    {
+        isPlayerPhase = false;
+        ResetSheet();
+    }
+
+    private void GenerateJudgeLines()
+    {
+        // 清除旧判定线
+        ClearJudgeLines();
+
+        // 生成3条判定线，对应3个玩家行动节拍
+        float sheetWidth = Mathf.Abs(rightEndX - leftStartX);
+        float beatDistance = sheetWidth / 3f;
+
+        for (int i = 0; i < 3; i++)
+        {
+            float xPos = leftStartX + (beatDistance * (i + 0.5f)); // 在节拍中间位置
+            Vector2 judgeLinePos = new Vector2(xPos, 0);
+
+            GameObject judgeLineObj = Instantiate(judgeLinePrefab, transform);
+            Image judgeLine = judgeLineObj.GetComponent<Image>();
+            judgeLine.rectTransform.localPosition = judgeLinePos;
+            spawnedJudgeLines.Add(judgeLine);
+        }
+    }
+
 
     public void EnableInput(bool isEnable)
     {

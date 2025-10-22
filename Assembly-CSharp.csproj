@@ -76,10 +76,13 @@
     <Compile Include="Assets\Settings\InputSystem\RhythmInput.cs" />
     <Compile Include="Assets\Settings\InputSystem\PlayerInputControl.cs" />
     <Compile Include="Assets\VineDeadFinish.cs" />
+    <Compile Include="Assets\Scripts\UI\Fade Canvas.cs" />
+    <Compile Include="Assets\Scripts\Sheet\BeatManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\Vine.cs" />
     <Compile Include="Assets\Scripts\ScriptableObject\PlayAudioEventSO.cs" />
     <Compile Include="Assets\Scripts\ScriptableObject\SheetJudgeEventSO.cs" />
     <Compile Include="Assets\Scripts\StageControl\Stage2VineBattle.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObject\FadeEventSO.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\Sheet\SheetJudge.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAnimation.cs" />

@@ -7,6 +7,9 @@ using UnityEngine.Scripting.APIUpdating;
 
 public class PlayerControl : MonoBehaviour
 {
+    [Header("事件广播")]
+    public FadeEventSO fadeEventSO;
+
     [Header("事件监听")]
     public SheetJudgeEventSO sheetJudgeEvent;
 
@@ -133,6 +136,23 @@ public class PlayerControl : MonoBehaviour
         rb.AddForce(dir * hurtForce, ForceMode2D.Impulse);
         Debug.Log(dir * hurtForce);
         Debug.Log("Hurt");
+    }
+
+    public void FadeAfterHurt()
+    {
+        fadeEventSO.RaiseEvent(0f, 1f);
+    }
+
+    public void NumbAfterHurt(float numbDuration)
+    {
+        StartCoroutine(NumbCoroutine(numbDuration));
+    }
+
+    private IEnumerator NumbCoroutine(float numbDuration)
+    {
+        inputControl.Disable();
+        yield return new WaitForSeconds(numbDuration);
+        inputControl.Enable();
     }
 
     public void PlayerDead()

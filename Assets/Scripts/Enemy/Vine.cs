@@ -30,32 +30,52 @@ public class Vine : Enemy
         _attackTimer = attackInterval; 
         _checkRangeTimer = 0;
         _isPlayerInRange = false;
+
+        
     }
+
+    private void OnEnable()
+    {
+        BeatManager.Instance.OnBeat += OnBeat;
+        BeatManager.Instance.OnEnemyPhaseStart += OnEnemyPhaseStart;
+    }
+
+    private void OnDisable()
+    {
+        if (BeatManager.Instance != null)
+        {
+            BeatManager.Instance.OnBeat -= OnBeat;
+            BeatManager.Instance.OnEnemyPhaseStart -= OnEnemyPhaseStart;
+        }
+    }
+
+
 
     private void Update()
     {
         if(canAttack)
         {
-            if (playerTransform == null) return;
+            //if (playerTransform == null) return;
 
-            // 定时检测玩家是否在攻击范围内（降低检测频率优化性能）
-            _checkRangeTimer += Time.deltaTime;
-            if (_checkRangeTimer >= checkPlayerInterval)
-            {
-                CheckPlayerInRange();
-                _checkRangeTimer = 0;
-            }
+            //// 定时检测玩家是否在攻击范围内（降低检测频率优化性能）
+            //_checkRangeTimer += Time.deltaTime;
+            //if (_checkRangeTimer >= checkPlayerInterval)
+            //{
+            //    CheckPlayerInRange();
+            //    _checkRangeTimer = 0;
+            //}
 
-            // 玩家在范围内时，启动攻击计时器
-            if (_isPlayerInRange)
-            {
-                _attackTimer += Time.deltaTime;
-                if (_attackTimer >= attackInterval)
-                {
-                    SpawnThorn(); // 生成荆棘
-                    _attackTimer = 0; // 重置计时器
-                }
-            }
+            //// 玩家在范围内时，启动攻击计时器
+            //if (_isPlayerInRange)
+            //{
+            //    _attackTimer += Time.deltaTime;
+            //    if (_attackTimer >= attackInterval)
+            //    {
+            //        SpawnThorn(); // 生成荆棘
+            //        _attackTimer = 0; // 重置计时器
+            //    }
+            //}
+            CheckPlayerInRange();
         }
     }
 
@@ -63,6 +83,37 @@ public class Vine : Enemy
     {
         float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
         _isPlayerInRange = distanceToPlayer <= attackRange;
+    }
+
+    private void OnEnemyPhaseStart()
+    {
+
+    }
+
+    private void OnBeat(int beat)
+    {
+        if (!canAttack || !_isPlayerInRange) return;
+
+        // 敌人行动阶段：后4拍
+        if (BeatManager.Instance.currentPhase == BeatManager.GamePhase.EnemyPhase)
+        {
+            switch (BeatManager.Instance.currentPhaseBeat)
+            {
+                case 0: // 第1拍：播放预警
+                    
+                    break;
+                case 1: // 第2拍：播放攻击动画并生成荆棘
+                    
+                    
+                    break;
+                case 2: // 第3拍：播放收回动画
+                    
+                    break;
+                case 3: // 第4拍：无事发生
+                    
+                    break;
+            }
+        }
     }
 
     private void SpawnThorn()
