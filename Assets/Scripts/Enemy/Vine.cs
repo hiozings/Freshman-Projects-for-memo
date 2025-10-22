@@ -100,7 +100,7 @@ public class Vine : Enemy
             switch (BeatManager.Instance.currentPhaseBeat)
             {
                 case 0: // 第1拍：播放预警
-                    
+                    SpawnThorn();
                     break;
                 case 1: // 第2拍：播放攻击动画并生成荆棘
                     

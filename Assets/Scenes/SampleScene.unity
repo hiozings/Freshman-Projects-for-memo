@@ -2303,6 +2303,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vine
       objectReference: {fileID: 0}
+    - target: {fileID: 1000386053726688620, guid: d9cd5e12ada05e34bad7be9d92c92e2e, type: 3}
+      propertyPath: canAttack
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6266297077907824052, guid: d9cd5e12ada05e34bad7be9d92c92e2e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.884698
@@ -2752,7 +2756,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   takeDamageFX: {fileID: 0}
   dieFX: {fileID: 0}
-  maxHealth: 10
+  maxHealth: 100
   currentHealth: 0
   maxShield: 0
   currentShield: 0
