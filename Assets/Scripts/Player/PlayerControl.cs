@@ -7,13 +7,17 @@ using UnityEngine.Scripting.APIUpdating;
 
 public class PlayerControl : MonoBehaviour
 {
+    [Header("事件监听")]
+    public SheetJudgeEventSO sheetJudgeEvent;
+
+    [Header("组件引用")]
     public PlayerInputControl inputControl;
     private Rigidbody2D rb;
     private PhysicsCheck physicsCheck;
     private PlayerAnimation playerAnimation;
     private CapsuleCollider2D capsuleCollider;
     private Attack attack;
-    public Vector2 inputDirection;
+    private Character character;
 
     [Header("基本参数")]
     public float speed;
@@ -23,6 +27,7 @@ public class PlayerControl : MonoBehaviour
     public float hurtForce;
     public float attackRadius;
     public Vector2 offset;
+    public Vector2 inputDirection;
     public LayerMask enemyLayer;
     private void Awake()
     {
@@ -33,21 +38,26 @@ public class PlayerControl : MonoBehaviour
         playerAnimation = GetComponent<PlayerAnimation>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
         attack = GetComponent<Attack>();
+        character = GetComponent<Character>();
 
         inputControl.Gameplay.Jump.started += Jump;
-        inputControl.Gameplay.JKey.started += PlayerAttack;
+        //inputControl.Gameplay.JKey.started += PlayerAttack;
     }
 
     
     private void OnEnable()
     {
         inputControl.Enable();
+        sheetJudgeEvent.OnEventRaised += OnSheetJudge;
     }
 
     private void OnDisable()
     {
         inputControl.Disable();
+        sheetJudgeEvent.OnEventRaised -= OnSheetJudge;
     }
+
+    
 
     private void Update()
     {
@@ -85,13 +95,13 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    private void PlayerAttack(InputAction.CallbackContext context)
+    private void PlayerAttack(int damage)
     {
        
             playerAnimation.PlayAttack();
             Debug.Log("attack!!!");
             Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, attackRadius, enemyLayer);
-
+            attack.damage = damage;
             
             foreach (var hitCollider in hitColliders)
             {
@@ -137,6 +147,57 @@ public class PlayerControl : MonoBehaviour
         //limitedInBounds.isLimited = false;
     }
 
+    private void OnSheetJudge(char comm, string precision)
+    {
+        if(comm == 'J')
+        {
+            switch (precision)
+            {
+                case "just":
+                    PlayerAttack(6); break;
+
+                case "good":
+                    PlayerAttack(4); break;
+
+                case "normal":
+                    PlayerAttack(2); break;
+                default:
+                    break;
+            }
+
+        }
+        else if(comm == 'K' && character.permanentShield == 0)
+        {
+            switch (precision)
+            {
+                case "just":
+                    character.AddShield(3); break;
+                case "good":
+                    character.AddShield(2); break;
+                case "normal":
+                    character.AddShield(1); break;
+                default:
+                    break;
+                
+            }
+
+        }
+        else if(comm == 'L')
+        {
+            switch(precision)
+            {
+                case "just":
+                    character.AddPower(2); break;
+                case "good":
+                    character.AddPower(2); break;
+                case "normal":
+                    character.AddPower(1); break;
+                default:
+                    break;
+            }
+        }
+
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere((Vector2)transform.position + offset, attackRadius);

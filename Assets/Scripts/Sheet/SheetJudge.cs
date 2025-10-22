@@ -9,6 +9,9 @@ public class SheetJudge : MonoBehaviour
 {
     public bool isInputEnabled =true;
 
+    public SheetJudgeEventSO sheetJudgeEventSO;
+    public Character character;
+
     // 扫描线相关
     [Header("扫描线设置")]
     public Image scanLine; // 拖拽UIImage作为扫描线
@@ -39,9 +42,9 @@ public class SheetJudge : MonoBehaviour
 
     // 判定参数（时间判定，参考音游标准）
     [Header("判定标准（毫秒）")]
-    public int perfectTime; // Perfect判定窗口
-    public int greatTime; // Great判定窗口
-    public int goodTime; // Good判定窗口
+    public int justTime; // Perfect判定窗口
+    public int goodTime; // Great判定窗口
+    public int normalTime; // Good判定窗口
     private float scanLinePassTime; // 扫描线经过判定线的时间戳
 
     private void Awake()
@@ -139,6 +142,7 @@ public class SheetJudge : MonoBehaviour
         // 判断扫描线是否在谱面内（可根据实际谱面宽度调整范围）
         bool isScanInSheet = currentScanX >= 0 && currentScanX <= 1000;
         if (!isScanInSheet) return;
+        if(character.currentPower <= 0) return;
 
         //// 遍历检测按键
         //for (int i = 0; i < rhythmKeys.Length; i++)
@@ -152,17 +156,20 @@ public class SheetJudge : MonoBehaviour
         //}
         if (jKeyAction.WasPressedThisFrame())
         {
-            SpawnMarkAndEval(0);
+            character.currentPower -= 1;
+            SpawnMarkAndEval(0, 'J');
             collectedCommand += 'J';
         }
         else if (kKeyAction.WasPressedThisFrame())
         {
-            SpawnMarkAndEval(1);
+            character.currentPower -= 1;
+            SpawnMarkAndEval(1, 'K');
             collectedCommand += 'K';
         }
         else if (lKeyAction.WasPressedThisFrame())
         {
-            SpawnMarkAndEval(2);
+            character.currentPower -= 1;
+            SpawnMarkAndEval(2, 'L');
             collectedCommand += 'L';
         }
 
@@ -177,7 +184,7 @@ public class SheetJudge : MonoBehaviour
 
 
     // 生成按键标记与评价标识
-    private void SpawnMarkAndEval(int keyIndex)
+    private void SpawnMarkAndEval(int keyIndex, char comm)
     {
         // 1. 生成标记
         Vector2 markPos = new Vector2(currentScanX, scanLine.rectTransform.localPosition.y);
@@ -201,24 +208,28 @@ public class SheetJudge : MonoBehaviour
         }
 
         // 3. 根据时间差生成评价标识
-        SpawnEvaluation(closestTimeDiff, markPos);
+        SpawnEvaluation(closestTimeDiff, markPos, comm);
     }
 
     // 根据时间差生成评价（Perfect>Great>Good>Miss）
-    private void SpawnEvaluation(float timeDiff, Vector2 spawnPos)
+    private void SpawnEvaluation(float timeDiff, Vector2 spawnPos, char comm)
     {
         GameObject evalPrefab = null;
-        if (timeDiff <= perfectTime)
+        if (timeDiff <= justTime)
         {
-            evalPrefab = evalPrefabs[0]; // Perfect预制体
-        }
-        else if (timeDiff <= greatTime)
-        {
-            evalPrefab = evalPrefabs[1]; // Great预制体
+            evalPrefab = evalPrefabs[0]; // just预制体
+            sheetJudgeEventSO.RaiseEvent(comm, "just");
+
         }
         else if (timeDiff <= goodTime)
         {
-            evalPrefab = evalPrefabs[2]; // Good预制体
+            evalPrefab = evalPrefabs[1]; // good预制体
+            sheetJudgeEventSO.RaiseEvent(comm, "good");
+        }
+        else if (timeDiff <= normalTime)
+        {
+            evalPrefab = evalPrefabs[2]; // normal预制体
+            sheetJudgeEventSO.RaiseEvent(comm, "normal");
         }
         // 未达Good则视为Miss，不生成评价（可根据需求补充Miss标识）
 
