@@ -102,7 +102,7 @@ public class PlayerControl : MonoBehaviour
     {
        
             playerAnimation.PlayAttack();
-            Debug.Log("attack!!!");
+            //Debug.Log("attack!!!");
             Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, attackRadius, enemyLayer);
             attack.damage = damage;
             
@@ -130,12 +130,12 @@ public class PlayerControl : MonoBehaviour
         isHurt = true;
         rb.velocity = Vector2.zero;
         Vector2 dir = new Vector2(transform.position.x - attacker.position.x, 0).normalized;
-        Debug.Log(hurtForce);
-        Debug.Log(dir);
+        //Debug.Log(hurtForce);
+        //Debug.Log(dir);
         //rb.AddForce(dir * (hurtForce * 10.0f), ForceMode2D.Impulse);
         rb.AddForce(dir * hurtForce, ForceMode2D.Impulse);
-        Debug.Log(dir * hurtForce);
-        Debug.Log("Hurt");
+        //Debug.Log(dir * hurtForce);
+        //Debug.Log("Hurt");
     }
 
     public void FadeAfterHurt()

@@ -326,4 +326,20 @@ public class SheetJudge : MonoBehaviour
         }
         spawnedEvals.Clear();
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        //Gizmos.DrawLine(new Vector2(leftStartX, this.GetComponent<Image>().rectTransform.position.y), new Vector2(rightEndX, this.GetComponent<Image>().rectTransform.position.y));
+        float worldY = transform.position.y;
+
+        // 将X坐标转换为世界坐标，保持Y坐标一致
+        Vector3 worldStart = transform.TransformPoint(new Vector3(leftStartX, 0, 0));
+        Vector3 worldEnd = transform.TransformPoint(new Vector3(rightEndX, 0, 0));
+
+        // 保持Y坐标一致
+        worldStart.y = worldY;
+        worldEnd.y = worldY;
+
+        Gizmos.DrawLine(worldStart, worldEnd);
+    }
 }

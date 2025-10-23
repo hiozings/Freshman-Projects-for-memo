@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\Enemy\VineNormal.cs" />
     <Compile Include="Assets\Scripts\General\Character.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\Sheet\BeatCaller.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioDefinition.cs" />
     <Compile Include="Assets\Scripts\Env\Fountain.cs" />
     <Compile Include="Assets\Settings\InputSystem\RhythmInput.cs" />

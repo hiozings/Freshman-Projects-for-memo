@@ -14,6 +14,7 @@ public class BeatManager : MonoBehaviour
     public int currentBeat = 0;
     public int currentPhaseBeat = 0; // 当前阶段内的节拍数
     public GamePhase currentPhase = GamePhase.PlayerPhase;
+    public bool isOnBeat;
     public float beatInterval { get; private set; }
 
     private float beatTimer = 0f;
@@ -44,32 +45,47 @@ public class BeatManager : MonoBehaviour
 
         // 计算节拍间隔：BPM 120 = 120拍/分钟 = 2拍/秒 = 0.5秒/拍
         beatInterval = 60f / BPM;
+        
     }
 
-    private void Start()
-    {
-        // 游戏开始时进入玩家阶段
-        OnPlayerPhaseStart?.Invoke();
-    }
+    //private void Start()
+    //{
+    //    // 游戏开始时进入玩家阶段
+    //    OnPlayerPhaseStart?.Invoke();
+    //}
+
+    //private void OnEnable()
+    //{
+    //    beatTimer = 0f;
+    //    currentBeat = 0;
+    //    currentPhaseBeat = 0;
+    //    currentPhase = GamePhase.PlayerPhase;
+    //    OnPlayerPhaseStart?.Invoke();
+        
+    //}
 
     private void Update()
     {
-        beatTimer += Time.deltaTime;
-
-        if (beatTimer >= beatInterval)
+        if(isOnBeat)
         {
-            beatTimer = 0f;
-            currentBeat++;
-            currentPhaseBeat++;
+            beatTimer += Time.deltaTime;
 
-            // 每4拍切换阶段
-            if (currentPhaseBeat >= beatsPerPhase)
+            if (beatTimer >= beatInterval)
             {
-                currentPhaseBeat = 0;
-                SwitchToNextPhase();
-            }
+                beatTimer = 0f;
+                currentBeat++;
+                currentPhaseBeat++;
+                Debug.Log($"currentBeat: {currentBeat}, currentPhaseBeat: {currentPhaseBeat}");
 
-            OnBeat?.Invoke(currentBeat);
+                // 每4拍切换阶段
+                if (currentPhaseBeat >= beatsPerPhase)
+                {
+                    currentPhaseBeat = 0;
+                    SwitchToNextPhase();
+                }
+
+                OnBeat?.Invoke(currentBeat);
+            }
         }
     }
 
@@ -104,5 +120,18 @@ public class BeatManager : MonoBehaviour
     public bool IsEnemyActionBeat(int enemyActionIndex)
     {
         return currentPhase == GamePhase.EnemyPhase && currentPhaseBeat == enemyActionIndex;
+    }
+
+    public void SetOnBeat(bool state)
+    {
+        isOnBeat = state;
+        if(state)
+        {
+            beatTimer = 0f;
+            currentBeat = 0;
+            currentPhaseBeat = 0;
+            currentPhase = GamePhase.RestPhase;
+            OnPlayerPhaseStart?.Invoke();
+        }
     }
 }

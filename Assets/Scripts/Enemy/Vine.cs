@@ -87,7 +87,7 @@ public class Vine : Enemy
 
     private void OnEnemyPhaseStart()
     {
-
+        
     }
 
     private void OnBeat(int beat)
@@ -127,7 +127,7 @@ public class Vine : Enemy
         Vector3 spawnPosition = playerTransform.position + thornOffset;
         spawnPosition.y = -0.3f;
         GameObject thorn = Instantiate(thornPrefab, spawnPosition, Quaternion.identity);
-        Debug.Log("Spawn");
+        //Debug.Log("Spawn");
         //Destroy(thorn, thornLifetime);
         // PlayThornSpawnEffect(spawnPosition);
     }
