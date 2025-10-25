@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
     <Compile Include="Assets\HurtFinish.cs" />
     <Compile Include="Assets\Scripts\Enemy\VineNormal.cs" />
+    <Compile Include="Assets\Scripts\Background\BackgroundControl.cs" />
     <Compile Include="Assets\Scripts\General\Character.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Sheet\BeatCaller.cs" />

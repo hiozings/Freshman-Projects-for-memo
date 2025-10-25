@@ -150,7 +150,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.052302957, y: 0.53140014}
+  m_Offset: {x: 0.052302957, y: 0.5097644}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -161,7 +161,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0620607, y: 0.21009338}
+  m_Size: {x: 1.0620607, y: 0.25336495}
   m_EdgeRadius: 0
 --- !u!70 &1150374782617434141
 CapsuleCollider2D:
@@ -233,6 +233,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4eefe254219dce842a1d71083642c148, type: 3}
   shieldDamageFX: {fileID: 8300000, guid: 4eefe254219dce842a1d71083642c148, type: 3}
   dieFX: {fileID: 8300000, guid: 4eefe254219dce842a1d71083642c148, type: 3}
+  buildShieldFX: {fileID: 0}
   maxHealth: 24
   currentHealth: 0
   currentShield: 0
@@ -287,7 +288,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  playAudioEvent: {fileID: 0}
+  playAudioEvent: {fileID: 11400000, guid: 6f64ab1a412e0b742a4f40f19b69ab67, type: 2}
 --- !u!95 &2861044520945601023
 Animator:
   serializedVersion: 5

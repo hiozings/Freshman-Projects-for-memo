@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Scripting.APIUpdating;
+using static Unity.VisualScripting.Member;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class PlayerControl : MonoBehaviour
     private CapsuleCollider2D capsuleCollider;
     private Attack attack;
     private Character character;
+    private AudioSource characterAudioSource;
 
     [Header("激光攻击设置")]
     public GameObject laserPrefab; // 激光预制体
@@ -50,6 +52,7 @@ public class PlayerControl : MonoBehaviour
         capsuleCollider = GetComponent<CapsuleCollider2D>();
         attack = GetComponent<Attack>();
         character = GetComponent<Character>();
+        characterAudioSource = GetComponent<AudioSource>();
 
         inputControl.Gameplay.Jump.started += Jump;
         //inputControl.Gameplay.JKey.started += PlayerAttack;
@@ -156,7 +159,9 @@ public class PlayerControl : MonoBehaviour
         {
             laserRb.velocity = direction * laserSpeed;
         }
-        playAudioEvent.RaiseEvent(ShootFX);
+        //playAudioEvent.RaiseEvent(ShootFX);
+        //characterAudioSource.Play();
+        PlayAttackFX();
         //else
         //{
         //    // 如果没有刚体，使用Transform移动
@@ -165,6 +170,20 @@ public class PlayerControl : MonoBehaviour
 
         // 自动销毁激光
         Destroy(laser, laserLifetime);
+    }
+
+    private void PlayAttackFX()
+    {
+        characterAudioSource.Play();
+        Invoke(nameof(StopFX), 1.6f);
+    }
+
+    private void StopFX()
+    {
+        if (characterAudioSource.isPlaying)
+        {
+            characterAudioSource.Stop();
+        }
     }
 
     public void GetHurt(Transform attacker)
@@ -211,7 +230,13 @@ public class PlayerControl : MonoBehaviour
 
     private void OnSheetJudge(char comm, string precision)
     {
-        if(comm == 'J')
+
+        if (character == null)
+        {
+            Debug.LogError("Character reference is null in PlayerControl!");
+            return;
+        }
+        if (comm == 'J')
         {
             switch (precision)
             {
@@ -232,6 +257,7 @@ public class PlayerControl : MonoBehaviour
         {
             switch (precision)
             {
+                
                 case "just":
                     character.AddShield(3); break;
                 case "good":

@@ -76,7 +76,7 @@ public class BeatManager : MonoBehaviour
                 beatTimer = 0f;
                 currentBeat++;
                 currentPhaseBeat++;
-                Debug.Log($"currentBeat: {currentBeat}, currentPhaseBeat: {currentPhaseBeat}");
+                //Debug.Log($"currentBeat: {currentBeat}, currentPhaseBeat: {currentPhaseBeat}");
 
                 // 每4拍切换阶段
                 if (currentPhaseBeat >= beatsPerPhase)
@@ -108,7 +108,7 @@ public class BeatManager : MonoBehaviour
                 break;
         }
 
-        Debug.Log($"切换到阶段: {currentPhase}, 总节拍: {currentBeat}");
+        //Debug.Log($"切换到阶段: {currentPhase}, 总节拍: {currentBeat}");
     }
 
     // 玩家行动时刻：前4拍中只有前3拍是谱线互动

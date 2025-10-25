@@ -24,6 +24,7 @@ public class PlayerAnimation : MonoBehaviour
     private void SetAnimation()
     {
         anim.SetFloat("velocityX", Mathf.Abs(rb.velocity.x));
+        anim.SetFloat("velocityY", rb.velocity.y);
         anim.SetBool("isGround", physicsCheck.isGround);
     }
 

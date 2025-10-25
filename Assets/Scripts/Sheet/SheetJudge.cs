@@ -11,6 +11,7 @@ public class SheetJudge : MonoBehaviour
 
     public SheetJudgeEventSO sheetJudgeEventSO;
     public PlayAudioEventSO playAudioEvent;
+    private AudioSource audioSource;
 
     public Character character;
 
@@ -59,10 +60,13 @@ public class SheetJudge : MonoBehaviour
     private void Awake()
     {
         input = new PlayerInputControl();
+        
         var gameplay = input.Gameplay;
         jKeyAction = gameplay.JKey;
         kKeyAction = gameplay.KKey;
         lKeyAction = gameplay.LKey;
+
+        audioSource = GetComponent<AudioSource>();
 
         float sheetWidth = Mathf.Abs(rightEndX - leftStartX);
         float timeForBeats = BeatManager.Instance.beatInterval * 4;
@@ -231,7 +235,8 @@ public class SheetJudge : MonoBehaviour
         {
             if (character.currentPower <= 0) return;
             character.currentPower -= 1;
-            playAudioEvent.RaiseEvent(jFX);
+            //playAudioEvent.RaiseEvent(jFX);
+            PlayTokenFX(jFX);
             SpawnMarkAndEval(0, 'J');
             collectedCommand += 'J';
         }
@@ -239,7 +244,9 @@ public class SheetJudge : MonoBehaviour
         {
             if (character.currentPower <= 0) return;
             character.currentPower -= 1;
-            playAudioEvent.RaiseEvent(kFX);
+            //playAudioEvent.RaiseEvent(kFX);
+            PlayTokenFX(kFX);
+            UnityEngine.Debug.Log("k");
             SpawnMarkAndEval(1, 'K');
             collectedCommand += 'K';
         }
@@ -247,11 +254,27 @@ public class SheetJudge : MonoBehaviour
         {
             if (character.currentPower <= 0) character.currentPower = 1;
             character.currentPower -= 1;
-            playAudioEvent.RaiseEvent(lFX);
+            //playAudioEvent.RaiseEvent(lFX);
+            PlayTokenFX(lFX);
             SpawnMarkAndEval(2, 'L');
             collectedCommand += 'L';
         }
 
+    }
+
+    private void PlayTokenFX(AudioClip clip)
+    {
+        audioSource.clip = clip;
+        audioSource.Play();
+        Invoke(nameof(StopFX), 1.6f);
+    }
+
+    private void StopFX()
+    {
+        if (audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
     }
 
     public string GetPlayerCommand()

@@ -127,8 +127,10 @@ public class Character : MonoBehaviour
 
     public void AddShield(int shield)
     {
+        Debug.Log("add shield");
         currentShield += shield;
         playAudioEvent.RaiseEvent(buildShieldFX);
+        Debug.Log("play fx");
         //if(currentShield > maxShield)
         //{
         //    currentShield = maxShield;
