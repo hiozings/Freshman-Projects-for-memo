@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,12 +18,20 @@ public class AudioManager : MonoBehaviour
     private void OnEnable()
     {
         FXEvent.OnEventRaised += OnFXEvent;
+        BGMEvent.OnEventRaised += OnBGM;
 
     }
 
     private void OnDisable()
     {
         FXEvent.OnEventRaised -= OnFXEvent;
+        BGMEvent.OnEventRaised -= OnBGM;
+    }
+
+    private void OnBGM(AudioClip clip)
+    {
+        BGMSource.clip = clip;
+        BGMSource.Play();
     }
 
     private void OnFXEvent(AudioClip clip)

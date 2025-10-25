@@ -65,12 +65,14 @@
     <Compile Include="Assets\Scripts\General\Attack.cs" />
     <Compile Include="Assets\Scripts\StageControl\Stage3.cs" />
     <Compile Include="Assets\Scripts\StageControl\Stage4.cs" />
+    <Compile Include="Assets\Scripts\StateBar\PowerBar.cs" />
     <Compile Include="Assets\Scripts\Enemy\VineEmerged.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
     <Compile Include="Assets\HurtFinish.cs" />
     <Compile Include="Assets\Scripts\Enemy\VineNormal.cs" />
     <Compile Include="Assets\Scripts\Background\BackgroundControl.cs" />
     <Compile Include="Assets\Scripts\General\Character.cs" />
+    <Compile Include="Assets\Scripts\StateBar\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Sheet\BeatCaller.cs" />
     <Compile Include="Assets\Scripts\Audio\AudioDefinition.cs" />

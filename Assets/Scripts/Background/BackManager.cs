@@ -31,8 +31,8 @@ public class BackManager : MonoBehaviour
     private void Move()
     {
         farRb.velocity = new Vector2(playerRb.velocity.x / 1.05f, 0);
-        middleRb.velocity = new Vector2(playerRb.velocity.x / 1.15f, 0);
-        frontRb.velocity = new Vector2(playerRb.velocity.x / 1.25f, 0);
+        //middleRb.velocity = new Vector2(playerRb.velocity.x / 1.15f, 0);
+        frontRb.velocity = new Vector2(playerRb.velocity.x / 1.15f, 0);
     }
 
 }

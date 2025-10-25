@@ -235,6 +235,7 @@ public class SheetJudge : MonoBehaviour
         {
             if (character.currentPower <= 0) return;
             character.currentPower -= 1;
+            character.OnPowerChange?.Invoke(character);
             //playAudioEvent.RaiseEvent(jFX);
             PlayTokenFX(jFX);
             SpawnMarkAndEval(0, 'J');
@@ -244,6 +245,7 @@ public class SheetJudge : MonoBehaviour
         {
             if (character.currentPower <= 0) return;
             character.currentPower -= 1;
+            character.OnPowerChange?.Invoke(character);
             //playAudioEvent.RaiseEvent(kFX);
             PlayTokenFX(kFX);
             //UnityEngine.Debug.Log("k");

@@ -27,6 +27,7 @@ public class Character : MonoBehaviour
     public Transform shieldTrans;
 
     public UnityEvent<Character> OnHealthChange;
+    public UnityEvent<Character> OnPowerChange;
     public UnityEvent<Transform> OnTakeDamage;
     public UnityEvent OnDie;
 
@@ -125,12 +126,14 @@ public class Character : MonoBehaviour
     {
         maxHealth += health;
         currentHealth = maxHealth;
+        OnHealthChange?.Invoke(this);
     }
 
     public void AddMaxPower(int power)
     {
         maxPower += power;
         currentPower = maxPower;
+        OnPowerChange?.Invoke(this);
     }
 
     public void AddPermanentShield(int shield)
@@ -177,6 +180,7 @@ public class Character : MonoBehaviour
         {
             currentPower = maxPower;
         }
+        OnPowerChange?.Invoke(this);
     }
 
     private void TriggerInvulnerable()

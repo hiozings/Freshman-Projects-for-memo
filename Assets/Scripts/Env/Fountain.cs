@@ -7,6 +7,15 @@ public class Fountain : MonoBehaviour
     public GameObject Cards;
     private bool canTouch;
 
+    private SpriteRenderer spriteRenderer;
+
+    public Sprite afterTouch;
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     private void Start()
     {
         canTouch = true;
@@ -28,5 +37,6 @@ public class Fountain : MonoBehaviour
     public void UsedFountain()
     {
         canTouch = false;
+        spriteRenderer.sprite = afterTouch;
     }
 }

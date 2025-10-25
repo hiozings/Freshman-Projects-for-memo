@@ -9,6 +9,7 @@ using DG.Tweening;
 public class Stage2VineBattle : MonoBehaviour
 {
     public VoidEventSO voidEvent;
+    public PlayAudioEventSO playAudioEvent;
 
 
     [Header("核心组件引用（关联第一段与场景资源）")]
@@ -25,6 +26,7 @@ public class Stage2VineBattle : MonoBehaviour
     public Transform vineSpawnPos;                // 藤蔓生成位置（主角前进路径上）
     public Transform npcSpawnPos;                 // NPC第二次入场位置（主角右侧3米）
     public GameObject battleMarkPrefab;           // 战斗标记预制体（屏幕中间显示）
+    public AudioClip battleBGM;
 
     [Header("流程参数（匹配策划节奏）")]
     public string[] npcBattleTips = {             // NPC战斗教学台词（攻击/回蓝/防御）
@@ -71,6 +73,8 @@ public class Stage2VineBattle : MonoBehaviour
     }
     IEnumerator Stage2InitiateCoroutine()
     {
+        
+        battleTMP.color = new Color(battleTMP.color.r, battleTMP.color.g, battleTMP.color.b, 1f);
         // 1. 摄像机锁定后，延迟生成藤蔓（给玩家缓冲时间，匹配策划“主角入场被阻拦”）
         battleTMP.gameObject.SetActive(true);
         battleTMP.text = "前方发现异常...";
@@ -102,6 +106,7 @@ public class Stage2VineBattle : MonoBehaviour
         battleTMP.gameObject.SetActive(false);
 
         BeatManager.Instance.SetOnBeat(true);
+        playAudioEvent.RaiseEvent(battleBGM);
 
         // 5. NPC退场，准备显示战斗标记
         //if (npcAnim != null) npcAnim.Play("NPC_WalkOut");
