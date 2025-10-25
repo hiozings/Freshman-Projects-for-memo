@@ -22,6 +22,10 @@ public class Character : MonoBehaviour
     public float invulnerableConunter;
     public bool invulnerable;
 
+    public GameObject shieldPrefab;
+    private GameObject shieldObj;
+    public Transform shieldTrans;
+
     public UnityEvent<Character> OnHealthChange;
     public UnityEvent<Transform> OnTakeDamage;
     public UnityEvent OnDie;
@@ -66,10 +70,18 @@ public class Character : MonoBehaviour
             d -= permanentShield;
             permanentShield = 0;
             playAudioEvent.RaiseEvent(shieldDamageFX);
+            if(currentShield == 0 && shieldObj != null)
+            {
+                Destroy(shieldObj);
+            }
         }
         if (currentShield >= d)
         {
             currentShield -= d;
+            if(currentShield <= 0 && shieldObj != null)
+            {
+                Destroy(shieldObj);
+            }
             TriggerInvulnerable();
             OnTakeDamage?.Invoke(attacker.transform);
             playAudioEvent.RaiseEvent(shieldDamageFX);
@@ -78,7 +90,10 @@ public class Character : MonoBehaviour
         {
             d -= currentShield;
             currentShield = 0;
-
+            if(shieldObj != null)
+            {
+                Destroy(shieldObj);
+            }
             if (currentHealth - d > 0)
             {
                 currentHealth -= d;
@@ -121,20 +136,38 @@ public class Character : MonoBehaviour
     public void AddPermanentShield(int shield)
     {
         permanentShield = shield;
+        if (currentShield == 0)
+        {
+            FormShield();
+        }
         playAudioEvent.RaiseEvent(buildShieldFX);
 
     }
 
     public void AddShield(int shield)
     {
-        Debug.Log("add shield");
+        if(currentShield == 0)
+        {
+
+            Debug.Log("add shield");
+            FormShield();
+        }
         currentShield += shield;
         playAudioEvent.RaiseEvent(buildShieldFX);
-        Debug.Log("play fx");
+        //Debug.Log("play fx");
         //if(currentShield > maxShield)
         //{
         //    currentShield = maxShield;
         //}
+    }
+
+    private void FormShield()
+    {
+        if (shieldObj != null) return;
+        shieldObj = Instantiate(shieldPrefab, shieldTrans.position, Quaternion.identity);
+        shieldObj.transform.SetParent(transform);
+        Debug.Log("SHIELD ON");
+        if (shieldObj == null) Debug.Log("no shieldObj");
     }
 
     public void AddPower(int power)

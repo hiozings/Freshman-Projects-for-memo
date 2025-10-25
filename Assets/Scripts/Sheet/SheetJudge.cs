@@ -115,7 +115,7 @@ public class SheetJudge : MonoBehaviour
         BeatManager.Instance.currentPhaseBeat < 4)
         {
             MoveScanLine();
-            UnityEngine.Debug.Log("update");
+            //UnityEngine.Debug.Log("update");
             CheckRhythmInput();
         }
 
@@ -178,7 +178,7 @@ public class SheetJudge : MonoBehaviour
     private void MoveScanLine()
     {
         currentScanX += scanSpeed * Time.deltaTime;
-        UnityEngine.Debug.Log("move");
+        //UnityEngine.Debug.Log("move");
         UpdateScanLinePos();
     }
 
@@ -246,7 +246,7 @@ public class SheetJudge : MonoBehaviour
             character.currentPower -= 1;
             //playAudioEvent.RaiseEvent(kFX);
             PlayTokenFX(kFX);
-            UnityEngine.Debug.Log("k");
+            //UnityEngine.Debug.Log("k");
             SpawnMarkAndEval(1, 'K');
             collectedCommand += 'K';
         }

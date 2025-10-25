@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\Enemy\Vine.cs" />
     <Compile Include="Assets\Scripts\ScriptableObject\PlayAudioEventSO.cs" />
     <Compile Include="Assets\Scripts\ScriptableObject\SheetJudgeEventSO.cs" />
+    <Compile Include="Assets\Scripts\Background\BackManager.cs" />
     <Compile Include="Assets\Scripts\StageControl\Stage2VineBattle.cs" />
     <Compile Include="Assets\Scripts\ScriptableObject\FadeEventSO.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerControl.cs" />
