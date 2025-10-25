@@ -40,7 +40,29 @@ public class Stage3 : MonoBehaviour
         TMP.gameObject.SetActive(false);
 
     }
+    private void FadeInText(string str, float duration = 2f)
+    {
+        if (TMP == null) return;
 
+        // 确保文本初始状态为完全透明
+        Color originalColor = TMP.color;
+        TMP.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0f);
+        TMP.text = str;
+        // 执行渐入动画
+        TMP.DOFade(1f, duration)
+            .SetEase(Ease.OutQuad);
+
+    }
+
+    // 渐出效果
+    private void FadeOutText(float duration = 2f)
+    {
+        if (TMP == null) return;
+
+        TMP.DOFade(0f, duration)
+            .SetEase(Ease.OutQuad);
+
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.transform == PlayerTrans && !isStage3Start)
@@ -67,21 +89,26 @@ public class Stage3 : MonoBehaviour
 
     private IEnumerator Stage3Init()
     {
-        TMP.text = "发现恢复之泉！";
+        //TMP.text = "发现恢复之泉！";
+        TMP.text = "";
         TMP.gameObject.SetActive(true);
         rb.bodyType = RigidbodyType2D.Static;
+
 
         yield return new WaitForSeconds(1f);
 
         spawnedNPC = Instantiate(npcPrefab, npcSpawnPos.position, Quaternion.identity);
+        FadeInText("NPC：啊…触碰它吧，那是上一个人的回响…", 0.5f);
+        yield return new WaitForSeconds(3f);
+        FadeOutText(0.5f);
         yield return new WaitForSeconds(1f);
 
         isNpcTeaching = true;
-        for (int i = 0; i < npcRewardDialogue.Length; i++)
-        {
-            TMP.text = $"NPC：{npcRewardDialogue[i]}";
-            yield return new WaitForSeconds(dialogueInterval);
-        }
+        //for (int i = 0; i < npcRewardDialogue.Length; i++)
+        //{
+        //    TMP.text = $"NPC：{npcRewardDialogue[i]}";
+        //    yield return new WaitForSeconds(dialogueInterval);
+        //}
 
         isNpcTeaching = false;
         TMP.gameObject.SetActive(false);
@@ -89,8 +116,8 @@ public class Stage3 : MonoBehaviour
         spawnedNPC.GetComponent<Animator>()?.SetTrigger("fade");
         //StartCoroutine(SmoothMoveCameraToLockPos(PlayerTrans.position, false));
         yield return new WaitForSeconds(1f);
-        vCam.Follow = PlayerTrans;
-        vCam.LookAt = PlayerTrans;
+        //vCam.Follow = PlayerTrans;
+        //vCam.LookAt = PlayerTrans;
         rb.bodyType = RigidbodyType2D.Dynamic;
 
         yield return null;

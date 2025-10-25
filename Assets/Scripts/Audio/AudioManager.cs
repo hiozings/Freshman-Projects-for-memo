@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -9,6 +10,7 @@ public class AudioManager : MonoBehaviour
     public PlayAudioEventSO BGMEvent;
     public PlayAudioEventSO pianoEvent;
     public PlayAudioEventSO drumEvent;
+    public VoidEventSO stopAudioEvent;
 
     public AudioSource BGMSource;
     public AudioSource FXSource;
@@ -19,13 +21,19 @@ public class AudioManager : MonoBehaviour
     {
         FXEvent.OnEventRaised += OnFXEvent;
         BGMEvent.OnEventRaised += OnBGM;
-
+        stopAudioEvent.OnEventRaised += OnStop;
     }
 
     private void OnDisable()
     {
         FXEvent.OnEventRaised -= OnFXEvent;
         BGMEvent.OnEventRaised -= OnBGM;
+        stopAudioEvent.OnEventRaised -= OnStop;
+    }
+
+    private void OnStop()
+    {
+        BGMSource.Stop();
     }
 
     private void OnBGM(AudioClip clip)

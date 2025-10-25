@@ -39,6 +39,7 @@ public class PlayerControl : MonoBehaviour
     public bool isDead;
     public float hurtForce;
     public float attackRadius;
+    private float originScale;
     public Vector2 offset;
     public Vector2 inputDirection;
     public LayerMask enemyLayer;
@@ -53,6 +54,8 @@ public class PlayerControl : MonoBehaviour
         attack = GetComponent<Attack>();
         character = GetComponent<Character>();
         characterAudioSource = GetComponent<AudioSource>();
+
+        originScale = transform.localScale.x;
 
         inputControl.Gameplay.Jump.started += Jump;
         //inputControl.Gameplay.JKey.started += PlayerAttack;
@@ -88,17 +91,18 @@ public class PlayerControl : MonoBehaviour
     {
         rb.velocity = new Vector2(inputDirection.x * speed * Time.fixedDeltaTime, rb.velocity.y);
 
-        int faceDir = (int)transform.localScale.x;
+        //int faceDir = (int)transform.localScale.x;
+        float faceDir = transform.localScale.x > 0 ? originScale : -originScale;
 
-        if(inputDirection.x > 0)
+        if (inputDirection.x > 0)
         {
-            faceDir = 1;
+            faceDir = originScale;
         }
         if(inputDirection.x < 0)
         {
-            faceDir = -1;
+            faceDir = -originScale;
         }
-        transform.localScale = new Vector3(faceDir, 1, 1);
+        transform.localScale = new Vector3(faceDir, transform.localScale.y, transform.localScale.z);
     }
 
     private void Jump(InputAction.CallbackContext context)

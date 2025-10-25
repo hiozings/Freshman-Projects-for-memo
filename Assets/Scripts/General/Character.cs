@@ -23,7 +23,9 @@ public class Character : MonoBehaviour
     public bool invulnerable;
 
     public GameObject shieldPrefab;
-    private GameObject shieldObj;
+    public GameObject manaPrefab;
+    public GameObject shieldObj;
+    private GameObject manaObj;
     public Transform shieldTrans;
 
     public UnityEvent<Character> OnHealthChange;
@@ -125,12 +127,13 @@ public class Character : MonoBehaviour
     public void AddMaxHealth(int health)
     {
         maxHealth += health;
-        currentHealth = maxHealth;
+        currentHealth = maxHealth - 3;
         OnHealthChange?.Invoke(this);
     }
 
     public void AddMaxPower(int power)
     {
+        FormMana();
         maxPower += power;
         currentPower = maxPower;
         OnPowerChange?.Invoke(this);
@@ -164,7 +167,7 @@ public class Character : MonoBehaviour
         //}
     }
 
-    private void FormShield()
+    public void FormShield()
     {
         if (shieldObj != null) return;
         shieldObj = Instantiate(shieldPrefab, shieldTrans.position, Quaternion.identity);
@@ -175,12 +178,20 @@ public class Character : MonoBehaviour
 
     public void AddPower(int power)
     {
+        FormMana();
         currentPower += power;
         if(currentPower > maxPower)
         {
             currentPower = maxPower;
         }
         OnPowerChange?.Invoke(this);
+    }
+
+    public void FormMana()
+    {
+        if(manaObj != null) return;
+        manaObj = Instantiate(manaPrefab, shieldTrans.position, Quaternion.identity);
+        manaObj.transform.SetParent(transform);
     }
 
     private void TriggerInvulnerable()

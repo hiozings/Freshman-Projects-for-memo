@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\General\PhysicsCheck.cs" />
     <Compile Include="Assets\Scripts\ScriptableObject\VoidEventSO.cs" />
+    <Compile Include="Assets\Scripts\Effect\Mana.cs" />
     <Compile Include="Assets\Scripts\General\Attack.cs" />
     <Compile Include="Assets\Scripts\StageControl\Stage3.cs" />
     <Compile Include="Assets\Scripts\StageControl\Stage4.cs" />

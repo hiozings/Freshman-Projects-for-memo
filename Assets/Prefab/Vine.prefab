@@ -34,7 +34,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.98, y: 0.47, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -243,7 +243,14 @@ MonoBehaviour:
   invulnerableDuration: 0
   invulnerableConunter: 0
   invulnerable: 0
+  shieldPrefab: {fileID: 0}
+  manaPrefab: {fileID: 0}
+  shieldObj: {fileID: 0}
+  shieldTrans: {fileID: 0}
   OnHealthChange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPowerChange:
     m_PersistentCalls:
       m_Calls: []
   OnTakeDamage:
@@ -326,7 +333,7 @@ MonoBehaviour:
   hurtFlashDuration: 0.5
   hurtFlashInterval: 0.1
   hurtColor: {r: 1, g: 0, b: 0, a: 1}
-  attackRange: 7.7
+  attackRange: 10
   attackInterval: 2
   checkPlayerInterval: 0.2
   canAttack: 0

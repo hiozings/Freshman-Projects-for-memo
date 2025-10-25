@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,9 @@ public class Fountain : MonoBehaviour
     private bool canTouch;
 
     private SpriteRenderer spriteRenderer;
+    public CinemachineVirtualCamera vCam;
+    public Transform PlayerTrans;
+    public Rigidbody2D playerRB;
 
     public Sprite afterTouch;
 
@@ -24,8 +28,8 @@ public class Fountain : MonoBehaviour
     {
         if(canTouch)
         {
-            
             Cards.SetActive(true);
+            //playerRB.bodyType = RigidbodyType2D.Static;
         }
     }
 
@@ -38,5 +42,8 @@ public class Fountain : MonoBehaviour
     {
         canTouch = false;
         spriteRenderer.sprite = afterTouch;
+        vCam.Follow = PlayerTrans;
+        vCam.LookAt = PlayerTrans;
+        playerRB.bodyType = RigidbodyType2D.Dynamic;
     }
 }

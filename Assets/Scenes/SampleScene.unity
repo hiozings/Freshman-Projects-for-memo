@@ -349,6 +349,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cards: {fileID: 56674064}
+  vCam: {fileID: 1282378618}
+  PlayerTrans: {fileID: 1608460503}
+  playerRB: {fileID: 1608460506}
   afterTouch: {fileID: 21300000, guid: 283cd3601a8e8ef439f10a60aaed62f6, type: 3}
 --- !u!61 &129770990
 BoxCollider2D:
@@ -1961,12 +1964,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   voidEvent: {fileID: 11400000, guid: 5c8eb7914a0d30247966b642f4732e0f, type: 2}
-  playAudioEvent: {fileID: 0}
+  playAudioEvent: {fileID: 11400000, guid: 67d658abcbdd8ab4983bc7c1bd4828dd, type: 2}
+  stopAudioEvent: {fileID: 11400000, guid: 372098a3008963f47aed39d025086b00, type: 2}
   stage1Controller: {fileID: 1608460515}
   vCam: {fileID: 1282378618}
   battleTMP: {fileID: 801377147}
   PlayerTrans: {fileID: 1608460503}
   rb: {fileID: 1608460506}
+  anim: {fileID: 1608460507}
+  character: {fileID: 1608460513}
   vineEnemyPrefab: {fileID: 7010380257785594752, guid: 3e12c7f50f3c7d24eba15ccd2e418505, type: 3}
   npcPrefab: {fileID: 4647453607941930235, guid: 4992424b0208f9241a4f98d188c8480b, type: 3}
   vineSpawnPos: {fileID: 1182201880}
@@ -1974,10 +1980,9 @@ MonoBehaviour:
   battleMarkPrefab: {fileID: 0}
   battleBGM: {fileID: 8300000, guid: e08d2bcaf2176e2418b357e1efb26ac0, type: 3}
   npcBattleTips:
-  - "\u524D\u65B9\u6709\u85E4\u8513\u963B\u62E6\uFF01\u6309J\u952E\u653B\u51FB\uFF0CK\u952E\u5F62\u6210\u62A4\u76FE"
-  - "\u80FD\u91CF\u8017\u5C3D\u65F6\u6309L\u56DE\u84DD"
-  - "\u522B\u5FD8\u4E86\u6309\u7167\u8282\u594F\u884C\u52A8"
-  - "\u51C6\u5907\u597D\u4E86\u5417\uFF1F\u6218\u6597\u8981\u5F00\u59CB\u4E86\uFF01"
+  - "\u54E6\u2026\u5982\u679C\u6211\u662F\u4F60\u7684\u8BDD\uFF0C\u6211\u4F1A\u5148\u628A\u5B83\u5F04\u65AD\u518D\u8D70\u3002"
+  - "\u6211\u770B\u5230\u4F60\u6709\u7434\u2026\u5BF9\u5427\uFF1F\u5728\u8FD9\u4E2A\u4E16\u754C\uFF0C\u97F3\u4E50\u4F1A\u5177\u8C61\u5316"
+  - "\u8BD5\u8BD5\u5F39\u594F\u4E00\u4E0B\uFF1F"
   tipInterval: 3
   battleMarkShowTime: 1.5
   vineSpawnDelay: 2
@@ -2076,12 +2081,16 @@ MonoBehaviour:
   npcSpawnPos: {fileID: 1866808508}
   bossPrefab: {fileID: 213158921017473243, guid: d9cd5e12ada05e34bad7be9d92c92e2e, type: 3}
   npcPrefab: {fileID: 4647453607941930235, guid: 4992424b0208f9241a4f98d188c8480b, type: 3}
+  vCam: {fileID: 1282378618}
+  vCamLockPos: {x: 63.47, y: -0.17, z: -10}
+  BGMClip: {fileID: 8300000, guid: e08d2bcaf2176e2418b357e1efb26ac0, type: 3}
   TMP: {fileID: 801377147}
   npcDialogue:
   - "\u606D\u559C\u4F60\u6253\u8D25\u4E86BOSS"
   - balabala
   - ............
   dialogueInterval: 2.5
+  playAudioEvent: {fileID: 11400000, guid: 67d658abcbdd8ab4983bc7c1bd4828dd, type: 2}
   bossDefeatedEvent: {fileID: 11400000, guid: 29456d7c762a81f498296ac7492b6dcd, type: 2}
   OnGameEnd:
     m_PersistentCalls:
@@ -2535,6 +2544,7 @@ MonoBehaviour:
   BGMEvent: {fileID: 11400000, guid: 67d658abcbdd8ab4983bc7c1bd4828dd, type: 2}
   pianoEvent: {fileID: 11400000, guid: 90c241c1baa790f49b71c5c7dddc652e, type: 2}
   drumEvent: {fileID: 11400000, guid: 5b68df6aa874b074aa30845f6733bb95, type: 2}
+  stopAudioEvent: {fileID: 11400000, guid: 372098a3008963f47aed39d025086b00, type: 2}
   BGMSource: {fileID: 629613651}
   FXSource: {fileID: 629613648}
   pianoSource: {fileID: 629613647}
@@ -3697,14 +3707,14 @@ RectTransform:
   m_GameObject: {fileID: 1170320390}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4.8831997, y: 6.0413957, z: 6.0413957}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 56674065}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -237, y: 0}
+  m_AnchoredPosition: {x: -556, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1170320392
@@ -3729,7 +3739,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.997385, g: 0, b: 1, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
@@ -3824,14 +3834,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.21092902, g: 0.2874469, b: 0.8490566, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: d590d179096e15441b8780c79e889732, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4255,7 +4265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6266297077907824052, guid: d9cd5e12ada05e34bad7be9d92c92e2e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.884698
+      value: 69.57
       objectReference: {fileID: 0}
     - target: {fileID: 6266297077907824052, guid: d9cd5e12ada05e34bad7be9d92c92e2e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4779,7 +4789,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.7, y: -0.17, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.7484}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 151376028}
@@ -5059,6 +5069,8 @@ MonoBehaviour:
   invulnerableConunter: 0
   invulnerable: 0
   shieldPrefab: {fileID: 38968619826376485, guid: 507f9094d9feebd43b09841985280ac2, type: 3}
+  manaPrefab: {fileID: 4940823583754319285, guid: 1b5dbe6c5107b3c4fbdb641452d61f3a, type: 3}
+  shieldObj: {fileID: 0}
   shieldTrans: {fileID: 151376028}
   OnHealthChange:
     m_PersistentCalls:
@@ -6231,7 +6243,7 @@ RectTransform:
   m_GameObject: {fileID: 1819900298}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5.133781, y: 6.1319375, z: 6.1319375}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 56674065}
@@ -6254,14 +6266,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.3945486, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: e54104519ebfd964d883d44806a394b4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6301,7 +6313,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 0.76214844, b: 0, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
@@ -6727,7 +6739,7 @@ Transform:
   m_GameObject: {fileID: 1968231251}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 63.57, y: -0.26, z: 0}
+  m_LocalPosition: {x: 69.24, y: -0.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7161,14 +7173,14 @@ RectTransform:
   m_GameObject: {fileID: 2111892473}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4.6923895, y: 6.221194, z: 6.119006}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 56674065}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 230.8, y: 0}
+  m_AnchoredPosition: {x: 565, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2111892475
@@ -7184,14 +7196,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.028934674, g: 0.48427665, b: 0.07930711, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: f1fcd2c5b08ea2d4a8fdd6c00627a83e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7231,7 +7243,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0, g: 0.01061964, b: 1, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
