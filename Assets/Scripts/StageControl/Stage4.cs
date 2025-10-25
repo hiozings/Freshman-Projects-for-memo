@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using static Unity.Burst.Intrinsics.X86.Avx;
+
 
 public class Stage4 : MonoBehaviour
 {
@@ -26,6 +28,7 @@ public class Stage4 : MonoBehaviour
     private GameObject spawnedNpc;
 
     public VoidEventSO bossDefeatedEvent;
+    public UnityEvent OnGameEnd;
 
     private void OnEnable()
     {
@@ -83,6 +86,11 @@ public class Stage4 : MonoBehaviour
 
         spawnedNpc.GetComponent<Animator>()?.SetTrigger("fade");
         yield return new WaitForSeconds(2f);
+
+        OnGameEnd?.Invoke();
+        yield return new WaitForSeconds(4f);
+
+        Application.Quit();
 
         Destroy(this.gameObject);
     }

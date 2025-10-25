@@ -10,6 +10,8 @@ public class SheetJudge : MonoBehaviour
     public bool isInputEnabled =true;
 
     public SheetJudgeEventSO sheetJudgeEventSO;
+    public PlayAudioEventSO playAudioEvent;
+
     public Character character;
 
     // 扫描线相关
@@ -50,6 +52,10 @@ public class SheetJudge : MonoBehaviour
     public int normalTime; // Good判定窗口
     private float scanLinePassTime; // 扫描线经过判定线的时间戳
 
+    [Header("音效")]
+    public AudioClip jFX;
+    public AudioClip kFX;
+    public AudioClip lFX;
     private void Awake()
     {
         input = new PlayerInputControl();
@@ -225,6 +231,7 @@ public class SheetJudge : MonoBehaviour
         {
             if (character.currentPower <= 0) return;
             character.currentPower -= 1;
+            playAudioEvent.RaiseEvent(jFX);
             SpawnMarkAndEval(0, 'J');
             collectedCommand += 'J';
         }
@@ -232,6 +239,7 @@ public class SheetJudge : MonoBehaviour
         {
             if (character.currentPower <= 0) return;
             character.currentPower -= 1;
+            playAudioEvent.RaiseEvent(kFX);
             SpawnMarkAndEval(1, 'K');
             collectedCommand += 'K';
         }
@@ -239,6 +247,7 @@ public class SheetJudge : MonoBehaviour
         {
             if (character.currentPower <= 0) character.currentPower = 1;
             character.currentPower -= 1;
+            playAudioEvent.RaiseEvent(lFX);
             SpawnMarkAndEval(2, 'L');
             collectedCommand += 'L';
         }

@@ -9,6 +9,7 @@ public class PlayerControl : MonoBehaviour
 {
     [Header("事件广播")]
     public FadeEventSO fadeEventSO;
+    public PlayAudioEventSO playAudioEvent;
 
     [Header("事件监听")]
     public SheetJudgeEventSO sheetJudgeEvent;
@@ -26,6 +27,8 @@ public class PlayerControl : MonoBehaviour
     public GameObject laserPrefab; // 激光预制体
     public float laserSpeed = 10f; // 激光飞行速度
     public float laserLifetime = 2f; // 激光存在时间
+
+    public AudioClip ShootFX;
 
     [Header("基本参数")]
     public float speed;
@@ -153,6 +156,7 @@ public class PlayerControl : MonoBehaviour
         {
             laserRb.velocity = direction * laserSpeed;
         }
+        playAudioEvent.RaiseEvent(ShootFX);
         //else
         //{
         //    // 如果没有刚体，使用Transform移动

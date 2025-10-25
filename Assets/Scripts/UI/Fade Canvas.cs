@@ -31,4 +31,9 @@ public class FadeCanvas : MonoBehaviour
         //fadeIamge.DOBlendableColor(target, duration);
         fadeIamge.DOFade(alpha, duration);
     }
+
+    public void GameEndFade()
+    {
+        fadeIamge.DOFade(1f, 3f);
+    }
 }

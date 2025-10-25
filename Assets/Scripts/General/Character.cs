@@ -6,8 +6,10 @@ using UnityEngine.Events;
 
 public class Character : MonoBehaviour
 {
-    public AudioClip takeDamageFX;
+    public List<AudioClip> takeDamageFXs;
+    public AudioClip shieldDamageFX;
     public AudioClip dieFX;
+    public AudioClip buildShieldFX;
 
     public int maxHealth;
     public int currentHealth;
@@ -24,7 +26,7 @@ public class Character : MonoBehaviour
     public UnityEvent<Transform> OnTakeDamage;
     public UnityEvent OnDie;
 
-    public PlayAudioEventSO PlayAudioEvent;
+    public PlayAudioEventSO playAudioEvent;
 
     private void Awake()
     {
@@ -56,18 +58,21 @@ public class Character : MonoBehaviour
             permanentShield -= d;
             TriggerInvulnerable();
             OnTakeDamage?.Invoke(attacker.transform);
+            playAudioEvent.RaiseEvent(shieldDamageFX);
             return;
         }
         else if(permanentShield > 0)
         {
             d -= permanentShield;
             permanentShield = 0;
+            playAudioEvent.RaiseEvent(shieldDamageFX);
         }
         if (currentShield >= d)
         {
             currentShield -= d;
             TriggerInvulnerable();
             OnTakeDamage?.Invoke(attacker.transform);
+            playAudioEvent.RaiseEvent(shieldDamageFX);
         }
         else
         {
@@ -81,6 +86,7 @@ public class Character : MonoBehaviour
                 OnTakeDamage?.Invoke(attacker.transform);
                 //PlayAudioEvent.RaiseEvent(takeDamageFX);
                 OnHealthChange?.Invoke(this);
+                //playAudioEvent?.RaiseEvent(takeDamageFX1);
             }
             else
             {
@@ -88,8 +94,16 @@ public class Character : MonoBehaviour
                 OnHealthChange?.Invoke(this);
                 OnDie?.Invoke();
                 //PlayAudioEvent.RaiseEvent(dieFX);
+                //playAudioEvent.RaiseEvent(takeDamageFX2);
             }
+            playAudioEvent?.RaiseEvent(chooseFX());
         }
+    }
+
+    private AudioClip chooseFX()
+    {
+        int randomNum = Random.Range(0, 3);
+        return takeDamageFXs[randomNum];
     }
 
     public void AddMaxHealth(int health)
@@ -107,12 +121,14 @@ public class Character : MonoBehaviour
     public void AddPermanentShield(int shield)
     {
         permanentShield = shield;
+        playAudioEvent.RaiseEvent(buildShieldFX);
 
     }
 
     public void AddShield(int shield)
     {
         currentShield += shield;
+        playAudioEvent.RaiseEvent(buildShieldFX);
         //if(currentShield > maxShield)
         //{
         //    currentShield = maxShield;

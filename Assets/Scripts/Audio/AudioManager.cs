@@ -29,5 +29,17 @@ public class AudioManager : MonoBehaviour
     {
         FXSource.clip = clip;
         FXSource.Play();
+        CancelInvoke(nameof(StopFX));
+
+        // 在指定时间后停止
+        Invoke(nameof(StopFX), 1.6f);
+    }
+
+    private void StopFX()
+    {
+        if (FXSource.isPlaying)
+        {
+            FXSource.Stop();
+        }
     }
 }

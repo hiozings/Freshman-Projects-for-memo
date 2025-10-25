@@ -227,8 +227,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96e2f426419f8f47a1e487db28a419d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  takeDamageFX: {fileID: 0}
-  dieFX: {fileID: 0}
+  takeDamageFXs:
+  - {fileID: 8300000, guid: 4eefe254219dce842a1d71083642c148, type: 3}
+  - {fileID: 8300000, guid: 4eefe254219dce842a1d71083642c148, type: 3}
+  - {fileID: 8300000, guid: 4eefe254219dce842a1d71083642c148, type: 3}
+  shieldDamageFX: {fileID: 8300000, guid: 4eefe254219dce842a1d71083642c148, type: 3}
+  dieFX: {fileID: 8300000, guid: 4eefe254219dce842a1d71083642c148, type: 3}
   maxHealth: 60
   currentHealth: 0
   currentShield: 0
@@ -283,7 +287,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  PlayAudioEvent: {fileID: 11400000, guid: 6f64ab1a412e0b742a4f40f19b69ab67, type: 2}
+  playAudioEvent: {fileID: 0}
 --- !u!95 &1545010965872720384
 Animator:
   serializedVersion: 5
@@ -318,6 +322,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDead: 0
+  hurtFlashDuration: 0.5
+  hurtFlashInterval: 0.1
+  hurtColor: {r: 1, g: 0, b: 0, a: 1}
   attackRange: 7.7
   attackInterval: 2
   checkPlayerInterval: 0.2
@@ -325,7 +332,4 @@ MonoBehaviour:
   thornPrefab: {fileID: 1062166456943030093, guid: b3bf8986aa089c148a9178c25120ff88, type: 3}
   thornLifetime: 3
   thornOffset: {x: 0, y: 0, z: 0}
-  hurtFlashDuration: 0.5
-  hurtFlashInterval: 0.1
-  hurtColor: {r: 1, g: 0, b: 0, a: 1}
   playerTransform: {fileID: 0}

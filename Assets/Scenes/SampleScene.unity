@@ -312,6 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInputEnabled: 1
   sheetJudgeEventSO: {fileID: 11400000, guid: 8b0703bcd89218742b88683f2389de40, type: 2}
+  playAudioEvent: {fileID: 0}
   character: {fileID: 1608460513}
   scanLine: {fileID: 437498561}
   scanSpeed: 500
@@ -334,6 +335,9 @@ MonoBehaviour:
   justTime: 100
   goodTime: 200
   normalTime: 250
+  jFX: {fileID: 8300000, guid: 9a3e44f5f645749418c897e8fa0fa372, type: 3}
+  kFX: {fileID: 8300000, guid: b1fa8f38cf995664e88f12eb1ae64205, type: 3}
+  lFX: {fileID: 8300000, guid: 6cc5a38814bb68b4a8388e409d3a41c4, type: 3}
 --- !u!114 &150807075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1115,6 +1119,21 @@ MonoBehaviour:
   - ............
   dialogueInterval: 2.5
   bossDefeatedEvent: {fileID: 11400000, guid: 29456d7c762a81f498296ac7492b6dcd, type: 2}
+  OnGameEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 272062744}
+        m_TargetAssemblyTypeName: FadeCanvas, Assembly-CSharp
+        m_MethodName: GameEndFade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &610669863
 Transform:
   m_ObjectHideFlags: 0
@@ -2040,6 +2059,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 6f64ab1a412e0b742a4f40f19b69ab67, type: 2}
+        m_TargetAssemblyTypeName: PlayAudioEventSO, Assembly-CSharp
+        m_MethodName: RaiseEvent
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 1581bf9fff43c824788aa50fa583ddd1, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1170320393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2846,10 +2877,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeEventSO: {fileID: 11400000, guid: ffffe78afa8108548850c05bf6243704, type: 2}
+  playAudioEvent: {fileID: 11400000, guid: 6f64ab1a412e0b742a4f40f19b69ab67, type: 2}
   sheetJudgeEvent: {fileID: 11400000, guid: 8b0703bcd89218742b88683f2389de40, type: 2}
   laserPrefab: {fileID: 309490500195231192, guid: 350bf00636fa95743bf0e55e035b587c, type: 3}
   laserSpeed: 10
   laserLifetime: 2
+  ShootFX: {fileID: 8300000, guid: bc3244b4150ba414989c18057e73053d, type: 3}
   speed: 200
   jumpForce: 10
   isHurt: 0
@@ -2920,8 +2953,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96e2f426419f8f47a1e487db28a419d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  takeDamageFX: {fileID: 0}
-  dieFX: {fileID: 0}
+  takeDamageFXs:
+  - {fileID: 8300000, guid: 23542efb225152049943b8f8def147ba, type: 3}
+  - {fileID: 8300000, guid: c26acfa2714af8c47af3ed157a4bdd84, type: 3}
+  - {fileID: 8300000, guid: 4f73192df2ec0454187654d26f643b6a, type: 3}
+  shieldDamageFX: {fileID: 8300000, guid: acb2967a871b7284eb791aa6522b5c3a, type: 3}
+  dieFX: {fileID: 8300000, guid: 23542efb225152049943b8f8def147ba, type: 3}
+  buildShieldFX: {fileID: 8300000, guid: 40c64096d2f36244197eeaf003d9da3a, type: 3}
   maxHealth: 10
   currentHealth: 0
   currentShield: 0
@@ -3000,7 +3038,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  PlayAudioEvent: {fileID: 0}
+  playAudioEvent: {fileID: 0}
 --- !u!114 &1608460514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3282,6 +3320,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 6f64ab1a412e0b742a4f40f19b69ab67, type: 2}
+        m_TargetAssemblyTypeName: PlayAudioEventSO, Assembly-CSharp
+        m_MethodName: RaiseEvent
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 1581bf9fff43c824788aa50fa583ddd1, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3632,6 +3682,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 10
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 6f64ab1a412e0b742a4f40f19b69ab67, type: 2}
+        m_TargetAssemblyTypeName: PlayAudioEventSO, Assembly-CSharp
+        m_MethodName: RaiseEvent
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 1581bf9fff43c824788aa50fa583ddd1, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
