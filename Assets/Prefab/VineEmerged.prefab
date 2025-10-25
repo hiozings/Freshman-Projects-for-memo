@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b1e3b4826f94384b8b091125e97c7c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 2
   attackRange: 0
   attackRate: 0
   disenableAfterAttack: 0
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b1e3b4826f94384b8b091125e97c7c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 2
   attackRange: 0
   attackRate: 0
   disenableAfterAttack: 0
@@ -416,7 +416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b1e3b4826f94384b8b091125e97c7c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 2
   attackRange: 0
   attackRate: 0
   disenableAfterAttack: 0
@@ -516,7 +516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b1e3b4826f94384b8b091125e97c7c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 2
   attackRange: 0
   attackRate: 0
   disenableAfterAttack: 0

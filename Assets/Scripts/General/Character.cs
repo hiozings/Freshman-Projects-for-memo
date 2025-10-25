@@ -11,7 +11,7 @@ public class Character : MonoBehaviour
 
     public int maxHealth;
     public int currentHealth;
-    public int maxShield;
+    //public int maxShield;
     public int currentShield;
     public int permanentShield;
     public int maxPower;
@@ -29,7 +29,7 @@ public class Character : MonoBehaviour
     private void Awake()
     {
         currentHealth = maxHealth;
-        currentShield = maxShield;
+        //currentShield = maxShield;
         currentPower = maxPower;
     }
 
@@ -113,10 +113,10 @@ public class Character : MonoBehaviour
     public void AddShield(int shield)
     {
         currentShield += shield;
-        if(currentShield > maxShield)
-        {
-            currentShield = maxShield;
-        }
+        //if(currentShield > maxShield)
+        //{
+        //    currentShield = maxShield;
+        //}
     }
 
     public void AddPower(int power)

@@ -86,6 +86,7 @@
     <Compile Include="Assets\Scripts\ScriptableObject\FadeEventSO.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\Sheet\SheetJudge.cs" />
+    <Compile Include="Assets\Scripts\Laser\LaserProjectile.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAnimation.cs" />
     <Compile Include="Assets\Scripts\StageControl\PlayerSpawnController.cs" />
     <Compile Include="Assets\Scripts\NPC\NPC.cs" />

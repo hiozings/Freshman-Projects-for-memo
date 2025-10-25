@@ -229,8 +229,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   takeDamageFX: {fileID: 0}
   dieFX: {fileID: 0}
-  maxHealth: 3
+  maxHealth: 60
   currentHealth: 0
+  currentShield: 0
+  permanentShield: 0
+  maxPower: 0
+  currentPower: 0
   invulnerableDuration: 0
   invulnerableConunter: 0
   invulnerable: 0
@@ -239,7 +243,19 @@ MonoBehaviour:
       m_Calls: []
   OnTakeDamage:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1000386053726688620}
+        m_TargetAssemblyTypeName: Vine, Assembly-CSharp
+        m_MethodName: GetHurt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDie:
     m_PersistentCalls:
       m_Calls:
@@ -309,4 +325,7 @@ MonoBehaviour:
   thornPrefab: {fileID: 1062166456943030093, guid: b3bf8986aa089c148a9178c25120ff88, type: 3}
   thornLifetime: 3
   thornOffset: {x: 0, y: 0, z: 0}
+  hurtFlashDuration: 0.5
+  hurtFlashInterval: 0.1
+  hurtColor: {r: 1, g: 0, b: 0, a: 1}
   playerTransform: {fileID: 0}

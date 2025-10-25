@@ -13,7 +13,7 @@ public class BeatManager : MonoBehaviour
     [Header("当前状态")]
     public int currentBeat = 0;
     public int currentPhaseBeat = 0; // 当前阶段内的节拍数
-    public GamePhase currentPhase = GamePhase.PlayerPhase;
+    public GamePhase currentPhase = GamePhase.RestPhase;
     public bool isOnBeat;
     public float beatInterval { get; private set; }
 
@@ -23,6 +23,7 @@ public class BeatManager : MonoBehaviour
     public System.Action OnPlayerPhaseStart;
     public System.Action OnEnemyPhaseStart;
     public System.Action OnRestPhaseStart;
+    public System.Action OnSheetOpen;
 
     public enum GamePhase
     {
@@ -131,7 +132,10 @@ public class BeatManager : MonoBehaviour
             currentBeat = 0;
             currentPhaseBeat = 0;
             currentPhase = GamePhase.RestPhase;
-            OnPlayerPhaseStart?.Invoke();
+            //OnPlayerPhaseStart?.Invoke();
+            OnRestPhaseStart?.Invoke();
+            if (OnSheetOpen == null) Debug.Log("OnSheetOpen null");
+            OnSheetOpen?.Invoke();
         }
     }
 }

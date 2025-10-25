@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using System.Diagnostics;
-
+using DG.Tweening;
 public class SheetJudge : MonoBehaviour
 {
     public bool isInputEnabled =true;
@@ -18,6 +18,8 @@ public class SheetJudge : MonoBehaviour
     public float scanSpeed; // 扫描线移动速度（像素/秒）
     public float leftStartX; // 扫描线起始X（谱面左侧外）
     public float rightEndX; // 扫描线结束X（谱面右侧外）
+    public float leftFarStartX;
+    public float rightFarEndX;
     private float currentScanX; // 扫描线当前X坐标
     private bool isPlayerPhase = true;
 
@@ -57,8 +59,8 @@ public class SheetJudge : MonoBehaviour
         lKeyAction = gameplay.LKey;
 
         float sheetWidth = Mathf.Abs(rightEndX - leftStartX);
-        float timeForThreeBeats = BeatManager.Instance.beatInterval * 3;
-        scanSpeed = sheetWidth / timeForThreeBeats;
+        float timeForBeats = BeatManager.Instance.beatInterval * 4;
+        scanSpeed = sheetWidth / timeForBeats;
     }
 
     void OnEnable()
@@ -67,6 +69,7 @@ public class SheetJudge : MonoBehaviour
         input.Enable();
         BeatManager.Instance.OnPlayerPhaseStart += OnPlayerPhaseStart;
         BeatManager.Instance.OnEnemyPhaseStart += OnEnemyPhaseStart;
+        BeatManager.Instance.OnRestPhaseStart += OnRestPhaseStart;
     }
 
     void OnDisable()
@@ -77,13 +80,14 @@ public class SheetJudge : MonoBehaviour
         {
             BeatManager.Instance.OnPlayerPhaseStart -= OnPlayerPhaseStart;
             BeatManager.Instance.OnEnemyPhaseStart -= OnEnemyPhaseStart;
+            BeatManager.Instance.OnRestPhaseStart -= OnRestPhaseStart;
         }
     }
 
     void Start()
     {
         // 初始化扫描线位置
-        currentScanX = leftStartX;
+        currentScanX = leftFarStartX;
         UpdateScanLinePos();
 
         // 生成初始判定线
@@ -98,16 +102,18 @@ public class SheetJudge : MonoBehaviour
         //// 2. 检测节奏按键输入
         //CheckRhythmInput();
         if (BeatManager.Instance.currentPhase == BeatManager.GamePhase.PlayerPhase &&
-        BeatManager.Instance.currentPhaseBeat < 3)
+        BeatManager.Instance.currentPhaseBeat < 4)
         {
             MoveScanLine();
+            UnityEngine.Debug.Log("update");
             CheckRhythmInput();
         }
 
         // 3. 扫描线循环（回到左侧时重置）
-        if (currentScanX > rightEndX)
+        if (currentScanX > rightFarEndX)
         {
-            ResetSheet();
+            //ResetSheet();
+            ResetSheetFar();
         }
     }
 
@@ -121,17 +127,24 @@ public class SheetJudge : MonoBehaviour
     private void OnEnemyPhaseStart()
     {
         isPlayerPhase = false;
-        ResetSheet();
+        scanLine.rectTransform.DOAnchorPos(new Vector2(rightFarEndX - 500, scanLine.rectTransform.localPosition.y), 2f).SetEase(Ease.Linear);
+    }
+
+    private void OnRestPhaseStart()
+    {
+        ResetSheetFar();
+        scanLine.rectTransform.DOAnchorPos(new Vector2(leftStartX - 500, scanLine.rectTransform.localPosition.y), 2f).SetEase(Ease.Linear);
     }
 
     private void GenerateJudgeLines()
     {
         // 清除旧判定线
         ClearJudgeLines();
+        UnityEngine.Debug.Log("generate lines");
 
         // 生成3条判定线，对应3个玩家行动节拍
         float sheetWidth = Mathf.Abs(rightEndX - leftStartX);
-        float beatDistance = sheetWidth / 3f;
+        float beatDistance = sheetWidth / 4f;
 
         for (int i = 0; i < 3; i++)
         {
@@ -155,6 +168,7 @@ public class SheetJudge : MonoBehaviour
     private void MoveScanLine()
     {
         currentScanX += scanSpeed * Time.deltaTime;
+        UnityEngine.Debug.Log("move");
         UpdateScanLinePos();
     }
 
@@ -195,7 +209,7 @@ public class SheetJudge : MonoBehaviour
         // 判断扫描线是否在谱面内（可根据实际谱面宽度调整范围）
         bool isScanInSheet = currentScanX >= 0 && currentScanX <= 1000;
         if (!isScanInSheet) return;
-        if(character.currentPower <= 0) return;
+        //if(character.currentPower <= 0) return;
 
         //// 遍历检测按键
         //for (int i = 0; i < rhythmKeys.Length; i++)
@@ -209,18 +223,21 @@ public class SheetJudge : MonoBehaviour
         //}
         if (jKeyAction.WasPressedThisFrame())
         {
+            if (character.currentPower <= 0) return;
             character.currentPower -= 1;
             SpawnMarkAndEval(0, 'J');
             collectedCommand += 'J';
         }
         else if (kKeyAction.WasPressedThisFrame())
         {
+            if (character.currentPower <= 0) return;
             character.currentPower -= 1;
             SpawnMarkAndEval(1, 'K');
             collectedCommand += 'K';
         }
         else if (lKeyAction.WasPressedThisFrame())
         {
+            if (character.currentPower <= 0) character.currentPower = 1;
             character.currentPower -= 1;
             SpawnMarkAndEval(2, 'L');
             collectedCommand += 'L';
@@ -242,7 +259,7 @@ public class SheetJudge : MonoBehaviour
         // 1. 生成标记
         Vector2 markPos = new Vector2(currentScanX, scanLine.rectTransform.localPosition.y);
         GameObject mark = Instantiate(markPrefabs[keyIndex], transform);
-        RectTransform markReck = GetComponent<RectTransform>();
+        RectTransform markReck = mark.GetComponent<RectTransform>();
         markReck.localPosition = markPos;
         spawnedMarks.Add(mark);
 
@@ -298,6 +315,7 @@ public class SheetJudge : MonoBehaviour
     // 扫描线循环时重置谱面（清除标记、评价，更新判定线）
     private void ResetSheet()
     {
+        UnityEngine.Debug.Log("reset");
         // 重置扫描线位置
         currentScanX = leftStartX;
         UpdateScanLinePos();
@@ -307,6 +325,13 @@ public class SheetJudge : MonoBehaviour
 
         // （可选）更新判定线坐标（文档需求，暂留接口，后续扩展）
         // UpdateJudgeLinePositions();
+    }
+
+    private void ResetSheetFar()
+    {
+        currentScanX = leftFarStartX;
+        UpdateScanLinePos();
+        ClearMarksAndEvals();
     }
 
     // 清除所有标记和评价

@@ -22,6 +22,11 @@ public class PlayerControl : MonoBehaviour
     private Attack attack;
     private Character character;
 
+    [Header("激光攻击设置")]
+    public GameObject laserPrefab; // 激光预制体
+    public float laserSpeed = 10f; // 激光飞行速度
+    public float laserLifetime = 2f; // 激光存在时间
+
     [Header("基本参数")]
     public float speed;
     public float jumpForce;
@@ -108,21 +113,54 @@ public class PlayerControl : MonoBehaviour
             
             foreach (var hitCollider in hitColliders)
             {
-                hitCollider.GetComponent<Character>()?.TakeDamage(attack);
-                
-                //Character enemyCharacter = hitCollider.GetComponent<Character>();
+            //hitCollider.GetComponent<Character>()?.TakeDamage(attack);
+            StartCoroutine(SpawnLaserToEnemy(hitCollider.transform, damage));
 
-                //if (enemyCharacter != null)
-                //{
-                //    // 找到Enemy的Character组件，可在此处添加攻击逻辑（如造成伤害）
-                //    Debug.Log($"攻击到敌人: {hitCollider.gameObject.name}");
 
-                //    // 示例：调用敌人的受伤方法（如果需要）
-                //    // enemyCharacter.TakeDamage(...)
-                //}
-            }
+        }
         
 
+    }
+
+    private IEnumerator SpawnLaserToEnemy(Transform enemyTarget, int damage)
+    {
+        if (laserPrefab == null || enemyTarget == null) yield break;
+
+        // 在玩家位置生成激光
+        GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
+
+        // 计算朝向敌人的方向
+        Vector2 direction = (enemyTarget.position - transform.position).normalized;
+        direction.y += 0.1f;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        // 设置激光旋转方向
+        laser.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+        // 获取激光的刚体组件
+        Rigidbody2D laserRb = laser.GetComponent<Rigidbody2D>();
+        LaserProjectile laserProjectile = laser.GetComponent<LaserProjectile>();
+
+        // 设置激光伤害
+        if (laserProjectile != null)
+        {
+            laserProjectile.damage = damage;
+            laserProjectile.target = enemyTarget;
+        }
+
+        // 发射激光
+        if (laserRb != null)
+        {
+            laserRb.velocity = direction * laserSpeed;
+        }
+        //else
+        //{
+        //    // 如果没有刚体，使用Transform移动
+        //    StartCoroutine(MoveLaserTransform(laser.transform, enemyTarget, direction));
+        //}
+
+        // 自动销毁激光
+        Destroy(laser, laserLifetime);
     }
 
     public void GetHurt(Transform attacker)
@@ -207,7 +245,7 @@ public class PlayerControl : MonoBehaviour
             switch(precision)
             {
                 case "just":
-                    character.AddPower(2); break;
+                    character.AddPower(3); break;
                 case "good":
                     character.AddPower(2); break;
                 case "normal":

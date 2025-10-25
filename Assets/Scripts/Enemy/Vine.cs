@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,18 +16,24 @@ public class Vine : Enemy
     public float thornLifetime; // 荆棘存在时间（秒），超时自动销毁
     public Vector3 thornOffset; // 荆棘生成位置偏移（避免埋入地面）
 
+    
+
     [Header("目标引用")]
     public Transform playerTransform; // 玩家Transform（拖拽赋值，或自动查找）
+    
 
     private float _attackTimer; // 攻击间隔计时器
     private float _checkRangeTimer; // 范围检测计时器
     private bool _isPlayerInRange; // 玩家是否在攻击范围内
+    
+    
 
     private void Start()
     {
         if(playerTransform == null)
             playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
+        
         _attackTimer = attackInterval; 
         _checkRangeTimer = 0;
         _isPlayerInRange = false;
@@ -84,6 +91,8 @@ public class Vine : Enemy
         float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
         _isPlayerInRange = distanceToPlayer <= attackRange;
     }
+
+    
 
     private void OnEnemyPhaseStart()
     {

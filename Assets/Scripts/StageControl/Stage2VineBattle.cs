@@ -101,6 +101,8 @@ public class Stage2VineBattle : MonoBehaviour
         isNpcTeaching = false;
         battleTMP.gameObject.SetActive(false);
 
+        BeatManager.Instance.SetOnBeat(true);
+
         // 5. NPC退场，准备显示战斗标记
         //if (npcAnim != null) npcAnim.Play("NPC_WalkOut");
         //battleTMP.text = "NPC：加油！我先退下了～";
