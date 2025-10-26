@@ -106,7 +106,7 @@ public class SheetJudge : MonoBehaviour
         //SpawnJudgeLines();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         //// 1. 扫描线移动逻辑
         //MoveScanLine();

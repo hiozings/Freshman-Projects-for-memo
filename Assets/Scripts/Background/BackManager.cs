@@ -23,7 +23,7 @@ public class BackManager : MonoBehaviour
         playerRb = player.GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Move();
     }

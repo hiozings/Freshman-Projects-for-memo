@@ -65,7 +65,7 @@ public class BeatManager : MonoBehaviour
         
     //}
 
-    private void Update()
+    private void FixedUpdate()
     {
         if(isOnBeat)
         {
