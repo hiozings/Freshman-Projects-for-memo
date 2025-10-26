@@ -71,7 +71,7 @@ public class BeatManager : MonoBehaviour
         {
             beatTimer += Time.deltaTime;
 
-            if (beatTimer >= beatInterval)
+            if (beatTimer > beatInterval)
             {
                 beatTimer = 0f;
                 currentBeat++;
@@ -128,14 +128,14 @@ public class BeatManager : MonoBehaviour
         isOnBeat = state;
         if(state)
         {
-            beatTimer = 0f;
+            beatTimer = 0.5f;
             currentBeat = 0;
             currentPhaseBeat = 0;
             currentPhase = GamePhase.RestPhase;
             //OnPlayerPhaseStart?.Invoke();
-            OnRestPhaseStart?.Invoke();
             if (OnSheetOpen == null) Debug.Log("OnSheetOpen null");
             OnSheetOpen?.Invoke();
+            OnRestPhaseStart?.Invoke();
         }
     }
 }

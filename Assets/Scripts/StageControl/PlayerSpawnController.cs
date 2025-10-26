@@ -11,6 +11,11 @@ using UnityEngine.UI;
 public class PlayerSpawnController : MonoBehaviour
 {
     public FadeEventSO fadeEvent;
+    public PlayAudioEventSO playAudioEvent;
+    public VoidEventSO stopBGMEvent;
+
+    public AudioClip startBGM;
+    public AudioClip normalBGM;
 
     [Header("核心组件引用")]
     private Rigidbody2D rb;                      // 主角刚体（控制物理）
@@ -31,11 +36,11 @@ public class PlayerSpawnController : MonoBehaviour
     public float standUpDuration = 2f;         // 起身动画时长（秒，匹配“缓缓站立”）
     public float textFlickerInterval = 0.5f;   // 起身时画面闪烁间隔（秒）
     private string[] npcDialogues = {           // NPC对话（按策划“交代基本设定”填写）
-        "NPC: 啊呀…又一个在崩溃的边缘，听见回响的人。",
-        "主角：这里…是哪里",
-        "NPC：啊…这里被称为...失律之境。是被现实遗忘的乐章，最终的归所。",
-        "NPC: 每一个错误的音符，都会变成噬人的怪物。每一次错误的节拍，都会让这个世界扭曲一点…",
-        "NPC：你最好…能快点把你的音乐想起来…"
+        "啊呀…又一个在崩溃的边缘，听见回响的人。",
+        "这里…是哪里",
+        "啊…这里被称为...失律之境。是被现实遗忘的乐章，最终的归所。",
+        "每一个错误的音符，都会变成噬人的怪物。每一次错误的节拍，都会让这个世界扭曲一点…",
+        "你最好…能快点把你的音乐想起来…"
 
     };
     public float dialogueInterval = 4f;      // NPC对话间隔（秒，控制语速）
@@ -78,6 +83,8 @@ public class PlayerSpawnController : MonoBehaviour
         anim.SetTrigger("down");
         mainCanvas.gameObject.SetActive(false);
         fadeCanvas.gameObject.SetActive(false);
+
+        playAudioEvent.RaiseEvent(startBGM);
         // 启动第一段核心流程：等待空格起身
         //StartCoroutine(SpawnInitCoroutine());
     }
@@ -126,6 +133,7 @@ public class PlayerSpawnController : MonoBehaviour
 
     public void OnGameStart()
     {
+        stopBGMEvent.RaiseEvent();
         menuCanvas.gameObject.SetActive(false);
         fadeCanvas.gameObject.SetActive(true);
         mainCanvas.gameObject.SetActive(true);
@@ -145,7 +153,7 @@ public class PlayerSpawnController : MonoBehaviour
         FadeInText("现实的舞台将你驱逐\r\n那份承载希冀的录取信函，终究未能如期而至…\r\n");
         yield return new WaitForSeconds(5f);
         FadeOutText();
-       
+        playAudioEvent.RaiseEvent(normalBGM);
 
         yield return new WaitForSeconds(2f);
 
@@ -266,11 +274,11 @@ public class PlayerSpawnController : MonoBehaviour
         //tutorialTMP.text = "NPC：继续前进吧！";
         npcAnim.SetTrigger("fade");
         yield return new WaitForSeconds(1.5f);
-        FadeInText("主角：什么意思…完全没懂");
+        FadeInText("什么意思…完全没懂");
         yield return new WaitForSeconds(3f);
         FadeOutText();
         yield return new WaitForSeconds(2f);
-        FadeInText("主角：这里喘不上气…还是…继续往前走吧。");
+        FadeInText("这里喘不上气…还是…继续往前走吧。");
         yield return new WaitForSeconds(3f);
         FadeOutText();
         rb.bodyType = RigidbodyType2D.Dynamic;

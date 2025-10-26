@@ -34,6 +34,7 @@ public class Stage4 : MonoBehaviour
     private GameObject spawnedNpc;
 
     public PlayAudioEventSO playAudioEvent;
+    public VoidEventSO stopBGMEvent;
     public VoidEventSO bossDefeatedEvent;
     public UnityEvent OnGameEnd;
 
@@ -79,6 +80,7 @@ public class Stage4 : MonoBehaviour
             //StartCoroutine(Stage4Init());
             vCam.Follow = null;
             vCam.LookAt = null;
+            stopBGMEvent.RaiseEvent();
             StartCoroutine(SmoothMoveCameraToLockPos(vCamLockPos, true));
         }
     }
@@ -100,7 +102,7 @@ public class Stage4 : MonoBehaviour
         yield return new WaitForSeconds(1f);
         TMP.text = "";
         TMP.gameObject.SetActive(true);
-        FadeInText("主角：看来…只能战斗了", 0.5f);
+        FadeInText("看来…只能战斗了", 0.5f);
         yield return new WaitForSeconds(2f);
         FadeOutText(0.5f);
         yield return new WaitForSeconds(1f);
@@ -145,6 +147,7 @@ public class Stage4 : MonoBehaviour
         vCam.LookAt = playerTrans;
 
         OnGameEnd?.Invoke();
+        stopBGMEvent.RaiseEvent();
         yield return new WaitForSeconds(4f);
 
         Application.Quit();

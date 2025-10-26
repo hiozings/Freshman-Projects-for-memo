@@ -98,7 +98,7 @@ public class Stage3 : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         spawnedNPC = Instantiate(npcPrefab, npcSpawnPos.position, Quaternion.identity);
-        FadeInText("NPC：啊…触碰它吧，那是上一个人的回响…", 0.5f);
+        FadeInText("啊…触碰它吧，那是上一个人的回响…", 0.5f);
         yield return new WaitForSeconds(3f);
         FadeOutText(0.5f);
         yield return new WaitForSeconds(1f);

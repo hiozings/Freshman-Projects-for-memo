@@ -1739,7 +1739,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.93, y: 2.8300002, z: -10}
+  m_LocalPosition: {x: -12, y: 2.8300002, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2105,6 +2105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   voidEvent: {fileID: 11400000, guid: 5c8eb7914a0d30247966b642f4732e0f, type: 2}
   playAudioEvent: {fileID: 11400000, guid: 67d658abcbdd8ab4983bc7c1bd4828dd, type: 2}
+  FXEvent: {fileID: 11400000, guid: 6f64ab1a412e0b742a4f40f19b69ab67, type: 2}
   stopAudioEvent: {fileID: 11400000, guid: 372098a3008963f47aed39d025086b00, type: 2}
   stage1Controller: {fileID: 1608460515}
   vCam: {fileID: 1282378618}
@@ -2113,12 +2114,17 @@ MonoBehaviour:
   rb: {fileID: 1608460506}
   anim: {fileID: 1608460507}
   character: {fileID: 1608460513}
+  sheet: {fileID: 150807075}
   vineEnemyPrefab: {fileID: 7010380257785594752, guid: 3e12c7f50f3c7d24eba15ccd2e418505, type: 3}
   npcPrefab: {fileID: 4647453607941930235, guid: 4992424b0208f9241a4f98d188c8480b, type: 3}
   vineSpawnPos: {fileID: 1182201880}
   npcSpawnPos: {fileID: 854424614}
   battleMarkPrefab: {fileID: 0}
   battleBGM: {fileID: 8300000, guid: 363275a142d3a0844b8db71444edd323, type: 3}
+  normalBGM: {fileID: 8300000, guid: 88125b2c070fe5945b6c09c275775107, type: 3}
+  JFX: {fileID: 8300000, guid: bc3244b4150ba414989c18057e73053d, type: 3}
+  KFX: {fileID: 8300000, guid: 40c64096d2f36244197eeaf003d9da3a, type: 3}
+  LFX: {fileID: 8300000, guid: 6cc5a38814bb68b4a8388e409d3a41c4, type: 3}
   npcBattleTips:
   - "\u54E6\u2026\u5982\u679C\u6211\u662F\u4F60\u7684\u8BDD\uFF0C\u6211\u4F1A\u5148\u628A\u5B83\u5F04\u65AD\u518D\u8D70\u3002"
   - "\u6211\u770B\u5230\u4F60\u6709\u7434\u2026\u5BF9\u5427\uFF1F\u5728\u8FD9\u4E2A\u4E16\u754C\uFF0C\u97F3\u4E50\u4F1A\u5177\u8C61\u5316"
@@ -2222,7 +2228,7 @@ MonoBehaviour:
   bossPrefab: {fileID: 213158921017473243, guid: d9cd5e12ada05e34bad7be9d92c92e2e, type: 3}
   npcPrefab: {fileID: 4647453607941930235, guid: 4992424b0208f9241a4f98d188c8480b, type: 3}
   vCam: {fileID: 1282378618}
-  vCamLockPos: {x: 63.47, y: -0.17, z: -10}
+  vCamLockPos: {x: 63.47, y: 3, z: -10}
   BGMClip: {fileID: 8300000, guid: e08d2bcaf2176e2418b357e1efb26ac0, type: 3}
   TMP: {fileID: 801377147}
   npcDialogue:
@@ -2231,6 +2237,7 @@ MonoBehaviour:
   - ............
   dialogueInterval: 2.5
   playAudioEvent: {fileID: 11400000, guid: 67d658abcbdd8ab4983bc7c1bd4828dd, type: 2}
+  stopBGMEvent: {fileID: 11400000, guid: 372098a3008963f47aed39d025086b00, type: 2}
   bossDefeatedEvent: {fileID: 11400000, guid: 29456d7c762a81f498296ac7492b6dcd, type: 2}
   OnGameEnd:
     m_PersistentCalls:
@@ -3201,7 +3208,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: '
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 54b046ad42ee3044eae1b14e1906f7c1, type: 2}
   m_sharedMaterial: {fileID: 2081569780494375872, guid: 54b046ad42ee3044eae1b14e1906f7c1, type: 2}
@@ -3228,8 +3237,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3287,14 +3296,14 @@ RectTransform:
   m_GameObject: {fileID: 801377146}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3292344, y: 1.3292344, z: 1.3292344}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 487600898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 459, y: 23}
+  m_AnchoredPosition: {x: 578, y: 175}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &854424613
@@ -4029,7 +4038,7 @@ Transform:
   m_GameObject: {fileID: 1182201879}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.99, y: -0.56, z: 0}
+  m_LocalPosition: {x: 10.99, y: -1.861, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4132,7 +4141,7 @@ Transform:
   m_GameObject: {fileID: 1282378617}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.93, y: 2.8300002, z: -10}
+  m_LocalPosition: {x: -12, y: 2.8300002, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4942,7 +4951,7 @@ Transform:
   m_GameObject: {fileID: 1608460501}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.93, y: -0.17, z: 0}
+  m_LocalPosition: {x: -12, y: -0.17, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.7484}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5135,6 +5144,7 @@ MonoBehaviour:
   laserPrefab: {fileID: 309490500195231192, guid: 350bf00636fa95743bf0e55e035b587c, type: 3}
   laserSpeed: 10
   laserLifetime: 2
+  laserOffset: 1
   ShootFX: {fileID: 8300000, guid: bc3244b4150ba414989c18057e73053d, type: 3}
   speed: 200
   jumpForce: 10
@@ -5356,6 +5366,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeEvent: {fileID: 11400000, guid: ffffe78afa8108548850c05bf6243704, type: 2}
+  playAudioEvent: {fileID: 11400000, guid: 67d658abcbdd8ab4983bc7c1bd4828dd, type: 2}
+  stopBGMEvent: {fileID: 11400000, guid: 372098a3008963f47aed39d025086b00, type: 2}
+  startBGM: {fileID: 8300000, guid: 2fc795a6aca2d844980a9e367be9daad, type: 3}
+  normalBGM: {fileID: 8300000, guid: 88125b2c070fe5945b6c09c275775107, type: 3}
   tutorialTMP: {fileID: 801377147}
   startButton: {fileID: 537202873}
   menuCanvas: {fileID: 2020333831}
@@ -7159,7 +7173,7 @@ Transform:
   m_GameObject: {fileID: 1968231251}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 69.24, y: -0.26, z: 0}
+  m_LocalPosition: {x: 70.84, y: -1.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

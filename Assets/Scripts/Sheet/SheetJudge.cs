@@ -71,6 +71,8 @@ public class SheetJudge : MonoBehaviour
         float sheetWidth = Mathf.Abs(rightEndX - leftStartX);
         float timeForBeats = BeatManager.Instance.beatInterval * 4;
         scanSpeed = sheetWidth / timeForBeats;
+
+        scanLine.rectTransform.localPosition = new Vector2(leftFarStartX, scanLine.rectTransform.localPosition.y);
     }
 
     void OnEnable()

@@ -6,10 +6,12 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 public class Stage2VineBattle : MonoBehaviour
 {
     public VoidEventSO voidEvent;
     public PlayAudioEventSO playAudioEvent;
+    public PlayAudioEventSO FXEvent;
     public VoidEventSO stopAudioEvent;
 
 
@@ -22,6 +24,7 @@ public class Stage2VineBattle : MonoBehaviour
     public Rigidbody2D rb;
     public Animator anim;
     public Character character;
+    public Image sheet;
 
     [Header("第二段关键资源（按策划需求配置）")]
     public GameObject vineEnemyPrefab;            // 黑色藤蔓敌人预制体（固定阻拦单位）
@@ -30,6 +33,10 @@ public class Stage2VineBattle : MonoBehaviour
     public Transform npcSpawnPos;                 // NPC第二次入场位置（主角右侧3米）
     public GameObject battleMarkPrefab;           // 战斗标记预制体（屏幕中间显示）
     public AudioClip battleBGM;
+    public AudioClip normalBGM;
+    public AudioClip JFX;
+    public AudioClip KFX;
+    public AudioClip LFX;
 
     [Header("流程参数（匹配策划节奏）")]
     public string[] npcBattleTips = {             // NPC战斗教学台词（攻击/回蓝/防御）
@@ -111,7 +118,8 @@ public class Stage2VineBattle : MonoBehaviour
         // 2. 生成黑色藤蔓敌人（固定阻拦单位，有接触伤害）
         spawnedVine = Instantiate(vineEnemyPrefab, vineSpawnPos.position, Quaternion.identity);
         //battleTMP.text = "黑色藤蔓挡住了去路！";
-        FadeInText("主角：这是…什么…", 0.5f);
+        stopAudioEvent.RaiseEvent();
+        FadeInText("这是…什么…", 0.5f);
         yield return new WaitForSeconds(1.5f);
         FadeOutText(0.5f);
 
@@ -131,7 +139,7 @@ public class Stage2VineBattle : MonoBehaviour
         for (int i = 0; i < npcBattleTips.Length; i++)
         {
             //battleTMP.text = $"NPC：{npcBattleTips[i]}";
-            FadeInText($"NPC：{npcBattleTips[i]}", 0.5f);
+            FadeInText($"{npcBattleTips[i]}", 0.5f);
             yield return new WaitForSeconds(tipInterval);
             FadeOutText(0.5f);
             yield return new WaitForSeconds(0.5f);
@@ -143,17 +151,18 @@ public class Stage2VineBattle : MonoBehaviour
             yield return null;
         }
         anim.SetTrigger("attack");
+        FXEvent.RaiseEvent(JFX);
         FadeOutText(0.5f);
         yield return new WaitForSeconds(0.5f);
-        FadeInText("主角：这…", 0.5f);
+        FadeInText("这…", 0.5f);
         yield return new WaitForSeconds(3f);
         FadeOutText(0.5f);
         yield return new WaitForSeconds(0.5f);
-        FadeInText("NPC：对的！就是这样", 0.5f);
+        FadeInText("对的！就是这样", 0.5f);
         yield return new WaitForSeconds(3f);
         FadeOutText(0.5f);
         yield return new WaitForSeconds(0.5f);
-        FadeInText("NPC：这个世界里不同的音乐片段都会产生不同的东西呢…", 0.5f);
+        FadeInText("这个世界里不同的音乐片段都会产生不同的东西呢…", 0.5f);
         yield return new WaitForSeconds(3f);
         FadeOutText(0.5f);
         yield return new WaitForSeconds(0.5f);
@@ -162,6 +171,8 @@ public class Stage2VineBattle : MonoBehaviour
         {
             yield return null;
         }
+        anim.SetTrigger("attack");
+        FXEvent.RaiseEvent(KFX);
         character.FormShield();
         yield return new WaitForSeconds(2f);
         Destroy(character.shieldObj);
@@ -172,23 +183,25 @@ public class Stage2VineBattle : MonoBehaviour
         {
             yield return null;
         }
+        anim.SetTrigger("attack");
+        FXEvent.RaiseEvent(LFX);
         character.FormMana();
         yield return new WaitForSeconds(1f);
         FadeOutText(0.5f);
         yield return new WaitForSeconds(0.5f);
-        FadeInText("NPC：好强力的共鸣…你在另一边肯定是一名很厉害的乐师…", 0.5f);
+        FadeInText("好强力的共鸣…你在另一边肯定是一名很厉害的乐师…", 0.5f);
         yield return new WaitForSeconds(3f);
         FadeOutText(0.5f);
         yield return new WaitForSeconds(0.5f);
-        FadeInText("NPC：就说这么多吧…哦，记住，你的演奏要跟上这个世界的“呼吸”", 0.5f);
+        FadeInText("就说这么多吧…哦，记住，你的演奏要跟上这个世界的“呼吸”", 0.5f);
         yield return new WaitForSeconds(3f);
         FadeOutText(0.5f);
         yield return new WaitForSeconds(0.5f);
-        FadeInText("主角：什么？", 0.5f);
+        FadeInText("什么？", 0.5f);
         yield return new WaitForSeconds(2f);
         FadeOutText(0.5f);
         yield return new WaitForSeconds(0.5f);
-        FadeInText("NPC：跟上“呼吸”！");
+        FadeInText("跟上“呼吸”！");
         yield return new WaitForSeconds(2f);
         spawnedNPC.GetComponent<Animator>()?.SetTrigger("fade");
         FadeOutText(0.5f);
@@ -259,7 +272,7 @@ public class Stage2VineBattle : MonoBehaviour
     public void  OnVineDefeated()
     {
         battleTMP.gameObject.SetActive(true);
-        FadeInText("主角：这是什么…好强力的…反应…", 0.5f);
+        FadeInText("这是什么…好强力的…反应…", 0.5f);
         rb.bodyType = RigidbodyType2D.Static;
         //battleTMP.text = "藤蔓缩回地下了！继续前进吧～";
         //spawnedNPC.GetComponent<Animator>()?.SetTrigger("fade");
@@ -277,7 +290,11 @@ public class Stage2VineBattle : MonoBehaviour
         stage1Controller.enabled = false;
 
         BeatManager.Instance.SetOnBeat(false);
+        sheet.gameObject.SetActive(false);
         stopAudioEvent.RaiseEvent();
+        yield return new WaitForSeconds(5f);
+        playAudioEvent.RaiseEvent(normalBGM);
+        yield return new WaitForSeconds(2f);
         // （后续扩展）触发第三段流程
         // Stage3Reward.Instance.StartStage3();
         Destroy(this.gameObject);

@@ -29,6 +29,7 @@ public class PlayerControl : MonoBehaviour
     public GameObject laserPrefab; // 激光预制体
     public float laserSpeed = 10f; // 激光飞行速度
     public float laserLifetime = 2f; // 激光存在时间
+    public float laserOffset;
 
     public AudioClip ShootFX;
 
@@ -137,11 +138,11 @@ public class PlayerControl : MonoBehaviour
         if (laserPrefab == null || enemyTarget == null) yield break;
 
         // 在玩家位置生成激光
-        GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
+        GameObject laser = Instantiate(laserPrefab, transform.position + new Vector3(0f, laserOffset, 0f), Quaternion.identity);
 
         // 计算朝向敌人的方向
-        Vector2 direction = (enemyTarget.position - transform.position).normalized;
-        direction.y += 0.1f;
+        Vector2 direction = (enemyTarget.position + new Vector3(0f, laserOffset, 0f) - transform.position).normalized;
+        //direction.y += laserOffset;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         // 设置激光旋转方向
@@ -259,6 +260,7 @@ public class PlayerControl : MonoBehaviour
         }
         else if(comm == 'K' && character.permanentShield == 0)
         {
+            playerAnimation.PlayAttack();
             switch (precision)
             {
                 
@@ -276,6 +278,7 @@ public class PlayerControl : MonoBehaviour
         }
         else if(comm == 'L')
         {
+            playerAnimation.PlayAttack();
             switch(precision)
             {
                 case "just":
