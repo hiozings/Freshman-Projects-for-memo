@@ -14,6 +14,7 @@ public class PlayerSpawnController : MonoBehaviour
     private Rigidbody2D rb;                      // 主角刚体（控制物理）
     private Animator anim;                      // 主角动画器（倒地/起身/移动动画）
     public TextMeshProUGUI tutorialTMP;        // 教学文本（TextMeshPro，弹字幕用）
+    public TextMeshProUGUI menuTMP;
     public GameObject npcPrefab;               // NPC预制体（对话用）
     public Transform npcSpawnPos;              // NPC生成位置（场景中指定）
     public Transform nextSectionTrigger;       // 第一段终点触发点（进入“承”阶段用）
@@ -69,7 +70,7 @@ public class PlayerSpawnController : MonoBehaviour
         tutorialTMP.fontSharedMaterial.SetColor("_UnderlayColor", Color.black);
         fadeEvent.RaiseEvent(1f, 0f);
         // 启动第一段核心流程：等待空格起身
-        StartCoroutine(SpawnInitCoroutine());
+        //StartCoroutine(SpawnInitCoroutine());
     }
 
     void Update()
@@ -114,6 +115,12 @@ public class PlayerSpawnController : MonoBehaviour
             
     }
 
+    public void OnGameStart()
+    {
+        menuTMP.gameObject.SetActive(false);
+        StartCoroutine(SpawnInitCoroutine());
+    }
+
     IEnumerator SpawnInitCoroutine()
     {
         // 显示“按空格起身”提示
@@ -155,7 +162,7 @@ public class PlayerSpawnController : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Dynamic; // 恢复物理（起身完成后可移动）
         FadeInText("按下a d移动，space跳跃");
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
 
         FadeOutText();
 

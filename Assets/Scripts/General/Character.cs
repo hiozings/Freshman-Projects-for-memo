@@ -10,6 +10,9 @@ public class Character : MonoBehaviour
     public AudioClip shieldDamageFX;
     public AudioClip dieFX;
     public AudioClip buildShieldFX;
+    public AudioClip jumpFX;
+    public AudioClip walkFX;
+    public AudioClip fallFX;
 
     public int maxHealth;
     public int currentHealth;
@@ -201,5 +204,20 @@ public class Character : MonoBehaviour
             invulnerable = true;
             invulnerableConunter = invulnerableDuration;
         }
+    }
+
+    public void PlayJumpFX()
+    {
+        playAudioEvent.RaiseEvent(jumpFX);
+    }
+
+    public void PlayWalkFX()
+    {
+        playAudioEvent.RaiseEvent(walkFX);
+    }
+
+    public void PlayFallFX()
+    {
+        playAudioEvent.RaiseEvent(fallFX);
     }
 }
