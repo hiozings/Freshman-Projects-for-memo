@@ -3,28 +3,16 @@
   "WorkspaceRootPath": "D:\\Unity Project\\New Pro\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|D:\\Unity Project\\New Pro\\assets\\scripts\\player\\playercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|d:\\unity project\\new pro\\assets\\scripts\\stagecontrol\\playerspawncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\stagecontrol\\playerspawncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|D:\\Unity Project\\New Pro\\assets\\scripts\\background\\backmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\background\\backmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|D:\\Unity Project\\New Pro\\assets\\scripts\\stagecontrol\\playerspawncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\stagecontrol\\playerspawncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|d:\\unity project\\new pro\\assets\\scripts\\env\\fountain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\env\\fountain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|D:\\Unity Project\\New Pro\\assets\\scripts\\stagecontrol\\stage2vinebattle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\stagecontrol\\stage2vinebattle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|D:\\Unity Project\\New Pro\\assets\\scripts\\stagecontrol\\stage4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\stagecontrol\\stage4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|D:\\Unity Project\\New Pro\\assets\\scripts\\audio\\audiomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\audio\\audiomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|D:\\Unity Project\\New Pro\\assets\\scripts\\stagecontrol\\stage3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,8 +23,32 @@
       "RelativeMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\general\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|D:\\Unity Project\\New Pro\\assets\\scripts\\audio\\audiomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\audio\\audiomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|D:\\Unity Project\\New Pro\\assets\\scripts\\player\\playercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playercontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|D:\\Unity Project\\New Pro\\assets\\scripts\\npc\\npc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\npc\\npc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|D:\\Unity Project\\New Pro\\assets\\scripts\\enemy\\vineemerged.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\vineemerged.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|D:\\Unity Project\\New Pro\\assets\\scripts\\general\\attack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\general\\attack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|D:\\Unity Project\\New Pro\\assets\\scripts\\env\\fountain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\env\\fountain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|D:\\Unity Project\\New Pro\\assets\\scripts\\stagecontrol\\stage2vinebattle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\stagecontrol\\stage2vinebattle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|D:\\Unity Project\\New Pro\\assets\\scripts\\stagecontrol\\stage4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\stagecontrol\\stage4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|D:\\Unity Project\\New Pro\\assets\\scripts\\sheet\\beatmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -61,10 +73,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|D:\\Unity Project\\New Pro\\assets\\scripts\\scriptableobject\\fadeeventso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scriptableobject\\fadeeventso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|D:\\Unity Project\\New Pro\\assets\\scripts\\general\\attack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\general\\attack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|D:\\Unity Project\\New Pro\\assets\\scripts\\player\\playeranimation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -99,10 +107,6 @@
       "RelativeMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|D:\\Unity Project\\New Pro\\assets\\scripts\\enemy\\vineemerged.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemy\\vineemerged.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|D:\\Unity Project\\New Pro\\assets\\scripts\\scriptableobject\\voideventso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3D8B4D9E-920D-09D1-6684-BD2852B0A524}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scriptableobject\\voideventso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -122,7 +126,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -130,46 +134,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PlayerSpawnController.cs",
-              "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\StageControl\\PlayerSpawnController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\StageControl\\PlayerSpawnController.cs",
-              "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\StageControl\\PlayerSpawnController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\StageControl\\PlayerSpawnController.cs",
-              "ViewState": "AgIAAJcAAAAAAAAAAAAwwKQAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-20T12:32:30.42Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Fountain.cs",
-              "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Env\\Fountain.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Env\\Fountain.cs",
-              "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Env\\Fountain.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Env\\Fountain.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAtwCUAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-21T12:09:58.28Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PlayerControl.cs",
-              "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Player\\PlayerControl.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerControl.cs",
-              "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Player\\PlayerControl.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerControl.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAxwBIAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-17T13:01:22.902Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 11,
               "Title": "Stage4.cs",
               "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\StageControl\\Stage4.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\StageControl\\Stage4.cs",
@@ -181,7 +146,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "SheetJudge.cs",
               "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Sheet\\SheetJudge.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Sheet\\SheetJudge.cs",
@@ -193,7 +158,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "BeatManager.cs",
               "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Sheet\\BeatManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Sheet\\BeatManager.cs",
@@ -205,25 +170,25 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 2,
               "Title": "AudioManager.cs",
               "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Audio\\AudioManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Audio\\AudioManager.cs",
               "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Audio\\AudioManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\Audio\\AudioManager.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAxwCMAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAQwCUAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-25T03:13:12.88Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
               "Title": "Character.cs",
               "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\General\\Character.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\General\\Character.cs",
               "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\General\\Character.cs",
               "RelativeToolTip": "Assets\\Scripts\\General\\Character.cs",
-              "ViewState": "AgIAAHIAAAAAAAAAAAAawIIAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAMkAAAAAAAAAAAAAwNwAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-19T11:36:04.056Z"
             },
@@ -235,122 +200,86 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Background\\BackManager.cs",
               "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Background\\BackManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\Background\\BackManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAA/AAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwCAAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-25T07:34:49.22Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-25T07:34:49.22Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Stage2VineBattle.cs",
-              "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\StageControl\\Stage2VineBattle.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\StageControl\\Stage2VineBattle.cs",
-              "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\StageControl\\Stage2VineBattle.cs",
-              "RelativeToolTip": "Assets\\Scripts\\StageControl\\Stage2VineBattle.cs",
-              "ViewState": "AgIAAAsBAAAAAAAAAAAIwBcBAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-20T11:46:22.559Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Stage3.cs",
-              "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\StageControl\\Stage3.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\StageControl\\Stage3.cs",
-              "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\StageControl\\Stage3.cs",
-              "RelativeToolTip": "Assets\\Scripts\\StageControl\\Stage3.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAABYAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-25T15:28:44.798Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "HealthBar.cs",
-              "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\StateBar\\HealthBar.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\StateBar\\HealthBar.cs",
-              "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\StateBar\\HealthBar.cs",
-              "RelativeToolTip": "Assets\\Scripts\\StateBar\\HealthBar.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwB4AAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-25T11:11:46.498Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Mana.cs",
-              "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Effect\\Mana.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Effect\\Mana.cs",
-              "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Effect\\Mana.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Effect\\Mana.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-25T13:52:01.739Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "FadeEventSO.cs",
-              "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\ScriptableObject\\FadeEventSO.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\ScriptableObject\\FadeEventSO.cs",
-              "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\ScriptableObject\\FadeEventSO.cs",
-              "RelativeToolTip": "Assets\\Scripts\\ScriptableObject\\FadeEventSO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T06:47:08.949Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "PowerBar.cs",
-              "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\StateBar\\PowerBar.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\StateBar\\PowerBar.cs",
-              "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\StateBar\\PowerBar.cs",
-              "RelativeToolTip": "Assets\\Scripts\\StateBar\\PowerBar.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-25T11:40:53.945Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 7,
               "Title": "VineEmerged.cs",
               "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Enemy\\VineEmerged.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\VineEmerged.cs",
               "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Enemy\\VineEmerged.cs",
               "RelativeToolTip": "Assets\\Scripts\\Enemy\\VineEmerged.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-24T15:03:54.492Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "BackgroundControl.cs",
-              "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Background\\BackgroundControl.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Background\\BackgroundControl.cs",
-              "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Background\\BackgroundControl.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Background\\BackgroundControl.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAcwA0AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "Stage3.cs",
+              "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\StageControl\\Stage3.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\StageControl\\Stage3.cs",
+              "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\StageControl\\Stage3.cs",
+              "RelativeToolTip": "Assets\\Scripts\\StageControl\\Stage3.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAkwB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-25T05:54:01.702Z"
+              "WhenOpened": "2025-10-25T15:28:44.798Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Fade Canvas.cs",
-              "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\UI\\Fade Canvas.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\Fade Canvas.cs",
-              "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\UI\\Fade Canvas.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UI\\Fade Canvas.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAzwCQAAAAhAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "PlayerSpawnController.cs",
+              "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\StageControl\\PlayerSpawnController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\StageControl\\PlayerSpawnController.cs",
+              "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\StageControl\\PlayerSpawnController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\StageControl\\PlayerSpawnController.cs",
+              "ViewState": "AgIAAI4AAAAAAAAAAAAkwJ0AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T06:58:03.433Z"
+              "WhenOpened": "2025-10-20T12:32:30.42Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 5,
+              "Title": "PlayerControl.cs",
+              "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Player\\PlayerControl.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerControl.cs",
+              "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Player\\PlayerControl.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerControl.cs",
+              "ViewState": "AgIAAB0BAAAAAAAAAAAAAAwAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-17T13:01:22.902Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "NPC.cs",
+              "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\NPC\\NPC.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\NPC\\NPC.cs",
+              "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\NPC\\NPC.cs",
+              "RelativeToolTip": "Assets\\Scripts\\NPC\\NPC.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwB4AAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T02:36:42.869Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Fountain.cs",
+              "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Env\\Fountain.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Env\\Fountain.cs",
+              "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Env\\Fountain.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Env\\Fountain.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAtwCUAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T12:09:58.28Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "Attack.cs",
               "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\General\\Attack.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\General\\Attack.cs",
@@ -362,7 +291,91 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Stage2VineBattle.cs",
+              "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\StageControl\\Stage2VineBattle.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\StageControl\\Stage2VineBattle.cs",
+              "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\StageControl\\Stage2VineBattle.cs",
+              "RelativeToolTip": "Assets\\Scripts\\StageControl\\Stage2VineBattle.cs",
+              "ViewState": "AgIAAAsBAAAAAAAAAAAIwBcBAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-20T11:46:22.559Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "HealthBar.cs",
+              "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\StateBar\\HealthBar.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\StateBar\\HealthBar.cs",
+              "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\StateBar\\HealthBar.cs",
+              "RelativeToolTip": "Assets\\Scripts\\StateBar\\HealthBar.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwB4AAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T11:11:46.498Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Mana.cs",
+              "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Effect\\Mana.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Effect\\Mana.cs",
+              "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Effect\\Mana.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Effect\\Mana.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T13:52:01.739Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "FadeEventSO.cs",
+              "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\ScriptableObject\\FadeEventSO.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ScriptableObject\\FadeEventSO.cs",
+              "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\ScriptableObject\\FadeEventSO.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ScriptableObject\\FadeEventSO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-22T06:47:08.949Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 16,
+              "Title": "PowerBar.cs",
+              "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\StateBar\\PowerBar.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\StateBar\\PowerBar.cs",
+              "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\StateBar\\PowerBar.cs",
+              "RelativeToolTip": "Assets\\Scripts\\StateBar\\PowerBar.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T11:40:53.945Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "BackgroundControl.cs",
+              "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Background\\BackgroundControl.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Background\\BackgroundControl.cs",
+              "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Background\\BackgroundControl.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Background\\BackgroundControl.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAcwA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T05:54:01.702Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Fade Canvas.cs",
+              "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\UI\\Fade Canvas.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\Fade Canvas.cs",
+              "ToolTip": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\UI\\Fade Canvas.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\Fade Canvas.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAzwCQAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-22T06:58:03.433Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
               "Title": "PlayerAnimation.cs",
               "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Player\\PlayerAnimation.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerAnimation.cs",
@@ -374,7 +387,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "LaserProjectile.cs",
               "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Laser\\LaserProjectile.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Laser\\LaserProjectile.cs",
@@ -386,7 +399,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "Vine.cs",
               "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Enemy\\Vine.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\Vine.cs",
@@ -398,7 +411,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "VoidEventSO.cs",
               "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\ScriptableObject\\VoidEventSO.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ScriptableObject\\VoidEventSO.cs",
@@ -410,7 +423,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": "BeatCaller.cs",
               "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Sheet\\BeatCaller.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Sheet\\BeatCaller.cs",
@@ -422,7 +435,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "VineNormal.cs",
               "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Enemy\\VineNormal.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\VineNormal.cs",
@@ -434,7 +447,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 25,
               "Title": "Enemy.cs",
               "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\Enemy\\Enemy.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enemy\\Enemy.cs",
@@ -446,7 +459,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "SheetJudgeEventSO.cs",
               "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\ScriptableObject\\SheetJudgeEventSO.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ScriptableObject\\SheetJudgeEventSO.cs",
@@ -458,7 +471,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "PhysicsCheck.cs",
               "DocumentMoniker": "D:\\Unity Project\\New Pro\\Assets\\Scripts\\General\\PhysicsCheck.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\General\\PhysicsCheck.cs",

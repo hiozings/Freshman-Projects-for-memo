@@ -6,6 +6,8 @@ using TMPro;
 using UnityEngine;
 using DG.Tweening;
 using System.Diagnostics;
+using UnityEngine.UI;
+
 public class PlayerSpawnController : MonoBehaviour
 {
     public FadeEventSO fadeEvent;
@@ -14,7 +16,11 @@ public class PlayerSpawnController : MonoBehaviour
     private Rigidbody2D rb;                      // 主角刚体（控制物理）
     private Animator anim;                      // 主角动画器（倒地/起身/移动动画）
     public TextMeshProUGUI tutorialTMP;        // 教学文本（TextMeshPro，弹字幕用）
-    public TextMeshProUGUI menuTMP;
+    //public TextMeshProUGUI menuTMP;
+    public Image startButton;
+    public Canvas menuCanvas;
+    public Canvas mainCanvas;
+    public Canvas fadeCanvas;
     public GameObject npcPrefab;               // NPC预制体（对话用）
     public Transform npcSpawnPos;              // NPC生成位置（场景中指定）
     public Transform nextSectionTrigger;       // 第一段终点触发点（进入“承”阶段用）
@@ -68,7 +74,10 @@ public class PlayerSpawnController : MonoBehaviour
 
         // 设置背景颜色
         tutorialTMP.fontSharedMaterial.SetColor("_UnderlayColor", Color.black);
-        fadeEvent.RaiseEvent(1f, 0f);
+        //fadeEvent.RaiseEvent(1f, 0f);
+        anim.SetTrigger("down");
+        mainCanvas.gameObject.SetActive(false);
+        fadeCanvas.gameObject.SetActive(false);
         // 启动第一段核心流程：等待空格起身
         //StartCoroutine(SpawnInitCoroutine());
     }
@@ -117,7 +126,10 @@ public class PlayerSpawnController : MonoBehaviour
 
     public void OnGameStart()
     {
-        menuTMP.gameObject.SetActive(false);
+        menuCanvas.gameObject.SetActive(false);
+        fadeCanvas.gameObject.SetActive(true);
+        mainCanvas.gameObject.SetActive(true);
+        fadeEvent.RaiseEvent(1f, 0f);
         StartCoroutine(SpawnInitCoroutine());
     }
 
@@ -154,6 +166,8 @@ public class PlayerSpawnController : MonoBehaviour
         {
             yield return null;
         }
+        anim.SetTrigger("stand");
+        
         FadeOutText();
 
         FadeInText("身体…好重…要喘不过气来了");

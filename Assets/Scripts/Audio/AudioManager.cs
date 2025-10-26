@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -33,7 +34,14 @@ public class AudioManager : MonoBehaviour
 
     private void OnStop()
     {
-        BGMSource.Stop();
+        //BGMSource.Stop();
+        BGMSource.DOFade(0f, 3f)
+            .SetEase(Ease.OutQuad)
+            .OnComplete(() => {
+                BGMSource.Stop();
+                BGMSource.volume = 1f; // 重置音量，便于下次播放
+                Debug.Log("BGM渐出停止完成");
+            });
     }
 
     private void OnBGM(AudioClip clip)

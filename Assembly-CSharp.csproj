@@ -95,6 +95,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerAnimation.cs" />
     <Compile Include="Assets\Scripts\StageControl\PlayerSpawnController.cs" />
     <Compile Include="Assets\Scripts\NPC\NPC.cs" />
+    <Compile Include="Assets\StandFinish.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
